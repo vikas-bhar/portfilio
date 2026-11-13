@@ -1,0 +1,17 @@
+{
+  "name": "Vikas Bhardwaj — Product Engineer",
+  "short_name": "Vikas.dev",
+  "description": "Full-stack and applied AI product engineering, native systems, and end-to-end deployment.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0b0c",
+  "theme_color": "#0a0b0c",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

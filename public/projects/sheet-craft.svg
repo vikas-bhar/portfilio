@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Sheet Craft project illustration</title>
+  <desc id="desc">A simple stack of spreadsheets with organized cells. A thematic illustration, not a product screenshot.</desc>
+  <rect width="800" height="480" fill="#eaf4ef"/>
+  <circle cx="400" cy="240" r="161" fill="#d4e9de"/>
+  <circle cx="197" cy="164" r="8" fill="#426f5c" opacity=".25"/>
+  <circle cx="607" cy="316" r="11" fill="#426f5c" opacity=".18"/>
+  <rect x="293" y="146" width="207" height="220" rx="16" fill="#bad7c9" transform="rotate(-10 396 256)"/>
+  <rect x="309" y="125" width="207" height="220" rx="16" fill="#fafffc" stroke="#426f5c" stroke-width="7"/>
+  <path d="M310 178H515" stroke="#426f5c" stroke-width="6"/>
+  <path d="M344 216H480M344 253H480M344 290H480M386 200V309M435 200V309" stroke="#9cbead" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="340" cy="152" r="6" fill="#426f5c"/><path d="M361 152H395" stroke="#9cbead" stroke-width="6" stroke-linecap="round"/>
+</svg>

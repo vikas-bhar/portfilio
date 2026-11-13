@@ -1,0 +1,531 @@
+/* --------------------------------------------------------------------------
+   About
+   -------------------------------------------------------------------------- */
+.about-section {
+  background: var(--section-bg);
+  border-block: 1px solid var(--line);
+}
+.about-eyebrow-float .section-eyebrow {
+  margin-bottom: 39px;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+.about-visual {
+  min-width: 0;
+}
+.about-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.about-stat-row strong {
+  font-size: 29px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.about-stat-row strong > span {
+  color: var(--accent);
+  font-weight: 300;
+}
+.about-stat .stat-label {
+  font-size: 10px;
+  color: var(--muted);
+}
+.about-stat-divider {
+  height: 42px;
+  width: 1px;
+  background: var(--line-strong);
+}
+.about-copy h2 {
+  font-size: 45px;
+  letter-spacing: -1.8px;
+  margin-bottom: 24px;
+}
+.about-description > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.95;
+  margin-bottom: 15px;
+}
+.about-description strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.focus-areas {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  padding-top: 12px;
+  margin-top: 10px;
+}
+.focus-area {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+.focus-icon {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--line-strong);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.focus-area h3 {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  margin-bottom: 5px;
+}
+.focus-area p {
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 340px;
+}
+.about-link {
+  font-size: 10px;
+  margin-top: 28px;
+  color: var(--text);
+  gap: 9px;
+}
+
+/* --------------------------------------------------------------------------
+   Engineering capabilities — domain-led lists, not a logo wall or skill scores
+   -------------------------------------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.skill-card {
+  padding: 28px 29px 30px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  transition:
+    border-color 200ms,
+    transform 200ms;
+}
+.skill-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-3px);
+}
+.skill-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--accent);
+  margin-bottom: 23px;
+}
+.skill-card-top .mono {
+  font-size: 8px;
+  color: var(--faint);
+}
+.skill-card h3 {
+  font-size: 20px;
+  font-weight: 450;
+  letter-spacing: -0.5px;
+  line-height: 1.4;
+}
+.skill-card > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.capability-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 20px;
+  padding: 20px 0 0;
+  margin: 20px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.capability-list > li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.capability-list > li::before {
+  content: '+';
+  font-family: var(--mono);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.learning-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 29px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--muted);
+}
+.learning-note .mono {
+  font-size: 8px;
+  letter-spacing: 0.7px;
+  margin-left: auto;
+  color: var(--faint);
+}
+.learning-note .status-dot {
+  width: 4px;
+  height: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Experience & milestones — roles and participation, with no invented dates
+   -------------------------------------------------------------------------- */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+.experience-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 27px 25px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.experience-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent);
+  margin-bottom: 26px;
+}
+.experience-card-top .eyebrow {
+  font-size: 8px;
+  letter-spacing: 0.6px;
+  color: var(--faint);
+}
+.experience-card h3 {
+  font-size: 22px;
+  font-weight: 450;
+  line-height: 1.35;
+  letter-spacing: -0.6px;
+}
+.experience-organization {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--accent);
+  margin-top: 12px;
+}
+.experience-description {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 17px 0 23px;
+}
+.milestone-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 18px 0 0;
+  margin: auto 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.milestone-highlights li {
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.7;
+}
+.milestone-highlights li:not(:last-child)::after {
+  content: ' /';
+  color: var(--faint);
+  margin-left: 7px;
+}
+
+/* --------------------------------------------------------------------------
+   Contact
+   -------------------------------------------------------------------------- */
+.contact-section {
+  background: var(--section-bg);
+  border-top: 1px solid var(--line);
+}
+.contact-eyebrow-float .section-eyebrow {
+  margin-bottom: 44px;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 124px;
+  align-items: center;
+}
+.contact-copy .availability {
+  font-size: 9px;
+}
+.contact-copy h2 {
+  position: relative;
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -2.7px;
+  margin-top: 26px;
+  margin-bottom: 22px;
+}
+.contact-heading-arrow {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  right: 21px;
+  bottom: 4px;
+  color: var(--accent);
+}
+.contact-copy > p:not(.copy-feedback) {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+.email-link-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 26px;
+}
+.contact-email {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.7px;
+  border-bottom: 1px solid var(--line-strong);
+  transition:
+    border-color 160ms,
+    color 160ms;
+}
+.contact-email:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.copy-email {
+  width: 32px;
+  height: 32px;
+  border: none;
+  color: var(--faint);
+}
+.copy-feedback {
+  font-size: 9px;
+  min-height: 18px;
+  line-height: 1.7;
+  margin-top: 9px;
+  color: var(--accent);
+}
+.contact-socials {
+  display: flex;
+  gap: 25px;
+  margin-top: 24px;
+}
+.contact-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  transition: color 160ms;
+}
+.contact-socials a:hover {
+  color: var(--accent);
+}
+.contact-socials a > svg:last-child {
+  margin-left: 4px;
+}
+.contact-form-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 29px;
+}
+.form-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 27px;
+  color: var(--muted);
+}
+.form-heading > span {
+  font-size: 20px;
+  color: var(--text);
+  letter-spacing: -0.7px;
+}
+.form-name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 19px;
+  min-width: 0;
+}
+.form-field > label {
+  font-size: 10px;
+  font-weight: 450;
+}
+.form-field > label > span {
+  color: var(--faint);
+  padding-left: 1px;
+}
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 12px;
+  border-radius: 4px;
+  transition: border-color 160ms;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--faint);
+  opacity: 1;
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--accent);
+}
+.form-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  max-height: 350px;
+}
+.form-submit {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 11px;
+  min-height: 44px;
+  padding-inline: 15px;
+  margin-top: 3px;
+}
+.form-note {
+  font-size: 8px;
+  color: var(--faint);
+  line-height: 1.7;
+  text-align: center;
+  margin-top: 13px;
+  max-width: 300px;
+  margin-inline: auto;
+}
+.draft-status {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  color: var(--accent);
+  padding: 14px;
+  margin-top: 17px;
+}
+.draft-status > svg {
+  flex-shrink: 0;
+}
+.draft-status strong {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.draft-status p {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.draft-status a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 44px;
+}
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 34px;
+}
+.footer-top .wordmark {
+  font-size: 14px;
+}
+.footer-top .brand-symbol {
+  transform: skew(22deg) scale(0.85);
+}
+.footer-tagline {
+  color: var(--faint);
+  font-size: 11px;
+}
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.back-to-top:hover {
+  color: var(--accent);
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding-block: 25px;
+  color: var(--faint);
+  font-size: 9px;
+}
+.footer-bottom > div {
+  display: flex;
+  gap: 20px;
+}
+.footer-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer-bottom a:hover {
+  color: var(--text);
+}
+.footer-signoff {
+  font-size: 7px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.footer-signoff .status-dot {
+  width: 4px;
+  height: 4px;
+}

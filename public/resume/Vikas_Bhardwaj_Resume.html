@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Vikas Bhardwaj — Full-Stack &amp; Applied AI Product Engineer. Printable résumé and selected product-engineering work." />
+  <meta name="color-scheme" content="light" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>Vikas Bhardwaj — Résumé</title>
+
+  <style>
+    * { box-sizing: border-box; }
+    :root { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #24332a; background: #eeeee8; font-size: 14px; line-height: 1.7; color-scheme: light; }
+    body { margin: 0; padding: 28px 20px 50px; }
+    a { color: #326146; text-underline-offset: 3px; overflow-wrap: anywhere; }
+    a:hover { color: #183d28; }
+    h1, h2, h3, p { margin: 0; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 22px; }
+    .button { border-radius: 5px; padding: 10px 18px; font: inherit; font-size: 12px; border: 1px solid #bac6b9; background: #fff; color: #24332a; cursor: pointer; text-decoration: none; }
+    .button-primary { background: #243d2c; color: #fff; border-color: #243d2c; }
+    .document { background: white; width: 100%; max-width: 850px; padding: 46px 52px; margin: 0 auto; border: 1px solid #d7ded3; border-radius: 7px; box-shadow: 0 8px 30px rgb(35 50 39 / 5%); }
+    header { border-bottom: 1px solid #d7ded3; padding-bottom: 25px; }
+    .eyebrow { font-size: 9px; letter-spacing: 1.8px; color: #5b715f; margin-bottom: 13px; }
+    h1 { font-size: 36px; line-height: 1.2; letter-spacing: -1.3px; font-weight: 650; }
+    .role { margin-top: 8px; font-size: 16px; color: #4e6b55; }
+    .location { margin-top: 5px; }
+    .contact { display: flex; gap: 17px; flex-wrap: wrap; margin-top: 15px; font-size: 11px; }
+    section { margin-top: 25px; }
+    h2 { color: #4e6b55; text-transform: uppercase; font-size: 11px; letter-spacing: 1.2px; border-bottom: 1px solid #d7ded3; padding-bottom: 7px; margin-bottom: 12px; }
+    h3 { font-size: 14px; font-weight: 650; line-height: 1.5; }
+    p { color: #536158; font-size: 12px; }
+    .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 13px 25px; }
+    .skill-group { break-inside: avoid; }
+    .skill-group h3 { font-size: 12px; margin-bottom: 3px; }
+    .skill-group p { font-size: 11px; }
+    .project { margin-bottom: 20px; break-inside: avoid; }
+    .project > p:not(.context):not(.tech):not(.verification) { margin-top: 6px; }
+    .project strong { font-weight: 600; color: #24332a; }
+    .context { font-size: 10px; color: #4e6b55; margin-top: 3px; }
+    .tech { color: #4e6b55; font-size: 10px; margin: 3px 0 7px; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 5px 14px; font-size: 10px; color: #536158; margin-top: 8px; }
+    .verification { font-size: 9px; margin-top: 6px; }
+    .milestone { break-inside: avoid; margin-bottom: 14px; }
+    .milestone > p:last-child { margin-top: 5px; }
+    .print-note { text-align: center; margin: 18px auto 0; max-width: 600px; color: #68796a; font-size: 11px; }
+    @media (max-width: 600px) { body { padding: 20px 12px 30px; } .document { padding: 28px 23px; } h1 { font-size: 29px; } .contact { gap: 9px 14px; } .skills { grid-template-columns: 1fr; } }
+    @page { size: A4; margin: 16mm; }
+    @media print { :root { background: white; } body { padding: 0; } .actions, .print-note { display: none; } .document { border: 0; box-shadow: none; border-radius: 0; padding: 0; max-width: none; } a { color: #326146; } h2 { break-after: avoid; } .skills { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="actions" aria-label="Résumé actions">
+    <button type="button" class="button button-primary" onclick="window.print()">Print / Save as PDF</button>
+    <a class="button" href="/api/resume/text" download="Vikas_Bhardwaj_Resume.txt">Download text</a>
+    <a class="button" href="/">Back to portfolio</a>
+  </nav>
+  <main class="document">
+    <header>
+      <p class="eyebrow">FULL-STACK / APPLIED AI / SYSTEMS</p>
+      <h1>Vikas Bhardwaj</h1>
+      <p class="role">Full-Stack &amp; Applied AI Product Engineer</p>
+      <p class="location">Jammu &amp; Kashmir, India</p>
+      <div class="contact">
+        <a href="mailto:vbvoxe@gmail.com">vbvoxe@gmail.com</a>
+        <a href="https://portfolio-vikas-eosin.vercel.app" target="_blank" rel="noopener noreferrer">Portfolio</a>
+        <a href="https://github.com/vikas-bhar" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/vikas-bhardwaj-5438083b4" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </header>
+    <section aria-labelledby="summary"><h2 id="summary">Professional summary</h2><p>Full-stack and applied AI product engineer based in Jammu &amp; Kashmir, building end-to-end web applications, agentic workflows, and native browser/system tools. I focus on practical software under real-world constraints, from offline-first access and telemetry pipelines to network-level filtering and direct-ordering prototypes.</p></section>
+    <section aria-labelledby="skills"><h2 id="skills">Technical capabilities</h2><div class="skills"><div class="skill-group"><h3>Frontend &amp; Full-Stack Web</h3><p>Next.js &amp; React · TypeScript / JavaScript · Tailwind CSS · HTML5 / CSS3 · Supabase Auth &amp; Postgres · REST APIs</p></div><div class="skill-group"><h3>Applied AI &amp; Automation</h3><p>Multi-agent workflows · Local LLM optimization · Hindi / Hinglish TTS · Vocoder pipelines · Playwright / Puppeteer · Headless browser automation</p></div><div class="skill-group"><h3>Systems &amp; Extension Engineering</h3><p>Chrome Manifest V3 · Network filtering / declarativeNetRequest · C++ native daemons · esbuild · Android Accessibility Services</p></div><div class="skill-group"><h3>Cloud, DevOps &amp; Deployment</h3><p>Vercel &amp; Netlify · Oracle Cloud Always Free VMs · Koyeb · Git / GitHub CI/CD · DNS &amp; domain management</p></div></div></section>
+    <section aria-labelledby="work"><h2 id="work">Projects &amp; selected work</h2><article class="project">
+    <h3>Kisan Sathi</h3>
+    <p class="context">DTU · SEVA2026 Challenge</p>
+    <p class="tech">Expo / React Native · Offline-first · ML inference · Vercel</p>
+    <p><strong>Problem.</strong> Rural farmers need timely crop and market guidance without depending on a stable connection or an English-only interface.</p>
+    <p><strong>Architecture.</strong> Expo / React Native client, offline-first caching, and ML-backed crop-assistance flows, with a web build deployed on Vercel.</p>
+    <p><strong>Impact.</strong> Built for DTU’s SEVA2026 Challenge around low-connectivity rural use. The live onboarding offers English, Hindi, Dogri, and Urdu.</p>
+    <div class="project-links"><a href="https://kisan-saathi-indol.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><span>Public page checked 2026-11-11</span><span>GitHub: private repository</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20Kisan%20Sathi&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20Kisan%20Sathi.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Public onboarding retrieved; Expo web build confirmed in Vercel. Offline and ML behavior have not been independently tested.</p>
+  </article><article class="project">
+    <h3>AEO Pulse</h3>
+    <p class="context">Live telemetry gateway</p>
+    <p class="tech">Express · Supabase · Telemetry pipelines · WebMCP</p>
+    <p><strong>Problem.</strong> Traditional traffic dashboards give little visibility into how AI crawlers and answer engines access a website.</p>
+    <p><strong>Architecture.</strong> The supplied live gateway uses Express, Supabase telemetry, and script / edge / middleware ingestion, with AEO auditing and a WebMCP tool dispatcher.</p>
+    <p><strong>Impact.</strong> Brings crawler events and AI-search readiness checks into one inspectable dashboard, replacing scattered tracking with a centralized telemetry flow.</p>
+    <div class="project-links"><a href="https://unknown-alpha-two.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><span>Public page checked 2026-11-11</span><span>GitHub: private repository</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20AEO%20Pulse&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20AEO%20Pulse.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Public telemetry UI retrieved; Express deployment confirmed in Vercel. Authentication and write APIs have not been tested.</p>
+  </article><article class="project">
+    <h3>FocusPulse</h3>
+    <p class="context">Builder-provided architecture</p>
+    <p class="tech">C++ daemon · Chrome MV3 · esbuild · Android Accessibility</p>
+    <p><strong>Problem.</strong> Tab timers are easy to bypass. Short-video loops span browsers and native apps, so focus needs enforcement beyond a single page.</p>
+    <p><strong>Architecture.</strong> C++ host daemon integrated with a Chrome Manifest V3 extension and declarativeNetRequest filtering; esbuild tooling and Android Accessibility Services extend the approach.</p>
+    <p><strong>Impact.</strong> Designed to connect native-process control with browser-level filtering, addressing distraction at the system boundary rather than the UI alone.</p>
+    <div class="project-links"><span>Live Demo: unavailable / not verified</span><span>GitHub: source unverified</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20FocusPulse&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20FocusPulse.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Architecture is supplied by the builder. Public demo, source, and working-UI capture are pending verification.</p>
+  </article><article class="project">
+    <h3>Rasa by Gulab — Direct-Ordering Prototype</h3>
+    <p class="context">Concept prototype · not an official restaurant site</p>
+    <p class="tech">Next.js · Direct ordering · WhatsApp handoff · Vercel</p>
+    <p><strong>Problem.</strong> Local restaurants need a direct digital ordering channel without making every customer interaction depend on delivery marketplaces and their fees.</p>
+    <p><strong>Architecture.</strong> Next.js menu and cart experience, a WhatsApp order handoff, and a Vercel deployment. Sample business details are explicitly labeled in the prototype.</p>
+    <p><strong>Impact.</strong> Makes a direct-ordering customer journey tangible for hospitality pitches. It is a concept—not a confirmed client launch or a claim of realized fee savings.</p>
+    <div class="project-links"><a href="https://rasa-by-gulab.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><span>Public page checked 2026-11-11</span><span>GitHub: private repository</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20Rasa%20by%20Gulab%20%E2%80%94%20Direct-Ordering%20Prototype&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20Rasa%20by%20Gulab%20%E2%80%94%20Direct-Ordering%20Prototype.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Public concept page, menu, and ordering controls retrieved. No order was submitted and no commercial outcome is claimed.</p>
+  </article><article class="project">
+    <h3>Venus AI</h3>
+    <p class="context">Earlier project · original demo needs a new URL</p>
+    <p class="tech">React · TypeScript · LLMs · Tailwind CSS</p>
+    <p>An AI application exploring conversational interfaces, generative reasoning, and responsive workflows.</p>
+
+
+    <div class="project-links"><span>Live Demo: unavailable / not verified</span><span>GitHub: source unverified</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20Venus%20AI&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20Venus%20AI.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Original project retained. On 2026-11-11 the former deployment showed Veda Scholar / JK exam preparation, so it is not presented as a verified Venus AI demo.</p>
+  </article><article class="project">
+    <h3>Sheet Craft</h3>
+    <p class="context">Earlier project · public landing page checked</p>
+    <p class="tech">Next.js · React · Spreadsheets</p>
+    <p>An AI-assisted workspace for turning text, files, and images into organized Google Sheets, with a guest/offline demo entry.</p>
+
+
+    <div class="project-links"><a href="https://sheet-craft-two.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><span>Public page checked 2026-11-11</span><span>GitHub: source unverified</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20Sheet%20Craft&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20Sheet%20Craft.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Public sign-in and guest-demo landing page retrieved. Google account access and spreadsheet-writing behavior were not tested.</p>
+  </article><article class="project">
+    <h3>PrepStudy Platform</h3>
+    <p class="context">Earlier project · academic tools</p>
+    <p class="tech">Next.js · React · Tailwind CSS</p>
+    <p>An academic-assistance interface with subject detection, question and answer input, image upload, and an AI answer-evaluation workflow.</p>
+
+
+    <div class="project-links"><a href="https://prepsudy.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><span>Public page checked 2026-11-11</span><span>GitHub: source unverified</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20PrepStudy%20Platform&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20PrepStudy%20Platform.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Public PrepStudy academic-intelligence UI retrieved. No file was uploaded and no evaluation was submitted.</p>
+  </article><article class="project">
+    <h3>Arora Tech</h3>
+    <p class="context">Earlier project · storefront prototype</p>
+    <p class="tech">React · Next.js · E-Commerce</p>
+    <p>A responsive laptop storefront with categorized refurbished machines, product details, and shopping-oriented interactions.</p>
+
+
+    <div class="project-links"><a href="https://arora-tech.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><span>Public page checked 2026-11-11</span><span>GitHub: source unverified</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20Arora%20Tech&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20Arora%20Tech.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Public refurbished-laptop catalog retrieved. Transactions, inventory accuracy, testimonials, and commercial claims were not verified.</p>
+  </article><article class="project">
+    <h3>MS Fast Food Point</h3>
+    <p class="context">Earlier project · restaurant ordering UI</p>
+    <p class="tech">React · Tailwind CSS · Ordering UI</p>
+    <p>A mobile-first restaurant experience with menu categories, food selections, price sorting, and an order-building interface.</p>
+
+
+    <div class="project-links"><a href="https://ms-fast-food-point.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><span>Public page checked 2026-11-11</span><span>GitHub: source unverified</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20MS%20Fast%20Food%20Point&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20MS%20Fast%20Food%20Point.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Public restaurant menu and ordering controls retrieved. No order was placed; delivery-time and nutrition claims were not verified.</p>
+  </article><article class="project">
+    <h3>LSSS School</h3>
+    <p class="context">Earlier project · academic portal</p>
+    <p class="tech">React · TypeScript · School portal</p>
+    <p>A school information portal bringing academic programs, admissions, institutional information, and a classroom-portal entry into one experience.</p>
+
+
+    <div class="project-links"><a href="https://lsss-school-sage.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a><span>Public page checked 2026-11-11</span><span>GitHub: source unverified</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20LSSS%20School&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20LSSS%20School.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">The original custom domain littlestarseniorsecondaryschooljuria.com could not be retrieved. The previously supplied Vercel alternative was retrieved successfully. Portal login and institutional claims were not tested.</p>
+  </article><article class="project">
+    <h3>Rahat Hospital &amp; Research Centre</h3>
+    <p class="context">Earlier project · deployment unavailable</p>
+    <p class="tech">React · TypeScript · Healthcare</p>
+    <p>A healthcare information portal concept for clinical departments, medical services, consultation details, and emergency-care access.</p>
+
+
+    <div class="project-links"><span>Live Demo: unavailable / not verified</span><span>GitHub: source unverified</span><a href="mailto:vbvoxe@gmail.com?subject=Source%20access%20%2F%20walkthrough%3A%20Rahat%20Hospital%20%26%20Research%20Centre&amp;body=Hi%20Vikas%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20Rahat%20Hospital%20%26%20Research%20Centre.%20Could%20you%20share%20a%20walkthrough%20or%20source%20access%3F%0A%0AThanks!">Request source / walkthrough</a></div>
+    <p class="verification">Project retained, but its deployment returned a Vercel 404 / DEPLOYMENT_NOT_FOUND page on 2026-11-11. No medical-service availability is implied.</p>
+  </article></section>
+    <section aria-labelledby="experience"><h2 id="experience">Experience & milestones</h2><article class="milestone"><h3>Founder &amp; Lead Builder</h3><p class="context">Vision Start / Zenastra Industries</p><p>Building full-stack web prototypes, direct-ordering platforms, and custom digital pitches for local hospitality, alongside automated digital-marketing pipelines.</p></article><article class="milestone"><h3>National &amp; Global Hackathon Builder</h3><p class="context">SEVA2026 (DTU) · Devpost builds</p><p>Built and submitted prototypes for SEVA2026 (DTU), RevenueCat Shipaton, Agentic Cinema, and Build with Gemini XPRIZE.</p></article><article class="milestone"><h3>Community &amp; Open Ecosystems</h3><p class="context">GDG Jammu (Build with AI) · Hack Club</p><p>Learning and building through local developer communities and open ecosystems, including GDG Jammu’s Build with AI and Hack Club.</p></article></section>
+  </main>
+  <p class="print-note">Choose “Save as PDF” in your browser’s print dialog to save a PDF copy.</p>
+</body>
+</html>

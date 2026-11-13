@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">PrepStudy Platform project illustration</title>
+  <desc id="desc">A simple open book and a pencil. A thematic illustration, not a product screenshot.</desc>
+  <rect width="800" height="480" fill="#eaf0f8"/>
+  <circle cx="400" cy="240" r="161" fill="#d7e3f1"/>
+  <circle cx="197" cy="164" r="8" fill="#4f6b91" opacity=".25"/>
+  <circle cx="607" cy="316" r="11" fill="#4f6b91" opacity=".18"/>
+  <path d="M400 180Q341 144 271 163V314Q339 293 400 329Q461 293 529 314V163Q459 144 400 180Z" fill="#fafdff" stroke="#4f6b91" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M400 182V328M305 206Q340 199 371 216M305 241Q340 234 371 251M429 216Q461 199 496 206M429 251Q461 234 496 241" fill="none" stroke="#a2b8d1" stroke-width="5" stroke-linecap="round"/>
+  <path d="M481 115L503 136L452 190L429 196L432 171Z" fill="#d5b57a" stroke="#8f794e" stroke-width="5" stroke-linejoin="round"/>
+</svg>

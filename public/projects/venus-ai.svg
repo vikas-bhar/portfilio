@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Venus AI project illustration</title>
+  <desc id="desc">A simple conversation bubble with a small sparkle. A thematic illustration, not a product screenshot.</desc>
+  <rect width="800" height="480" fill="#f3edf8"/>
+  <circle cx="400" cy="240" r="161" fill="#e6dbf0"/>
+  <circle cx="197" cy="164" r="8" fill="#795791" opacity=".25"/>
+  <circle cx="607" cy="316" r="11" fill="#795791" opacity=".18"/>
+  <path d="M310 157H490Q521 157 521 188V271Q521 302 490 302H385L327 342V302H310Q279 302 279 271V188Q279 157 310 157Z" fill="#fcf9ff" stroke="#795791" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M400 185L414 218L447 232L414 246L400 279L386 246L353 232L386 218Z" fill="#b197cd"/>
+  <path d="M544 126V158M528 142H560M248 280V302M237 291H259" stroke="#ae91c7" stroke-width="6" stroke-linecap="round"/>
+</svg>
