@@ -103,11 +103,14 @@ describe('server-rendered published metadata', () => {
     content.profile.name = 'Builder $& </script><script>alert(1)</script>';
     content.profile.headline = content.profile.name + ' — Product engineer';
     content.settings.metaDescription = 'A "safe" description <test>';
+    content.profile.website = 'https://published-portfolio.example';
     content.settings.defaultTheme = 'light';
     const html = renderMetadata(template, content);
     expect(html).toContain('Builder $&amp; &lt;/script&gt;');
     expect(html).not.toContain('</script><script>alert(1)</script>');
     expect(html).toContain('content="A &quot;safe&quot; description &lt;test&gt;"');
+    expect(html).toContain('rel="canonical" href="https://published-portfolio.example/"');
+    expect(html).toContain('property="og:url" content="https://published-portfolio.example/"');
     expect(html).toContain('data-theme="light"');
     const json = html.match(
       /<script id="portfolio-content" type="application\/json">(.*?)<\/script>/,
