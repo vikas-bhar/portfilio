@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">LSSS School project illustration</title>
+  <desc id="desc">A simple school building with a flag and a clock. A thematic illustration, not a product screenshot.</desc>
+  <rect width="800" height="480" fill="#f7f2e5"/>
+  <circle cx="400" cy="240" r="161" fill="#ece2c7"/>
+  <circle cx="197" cy="164" r="8" fill="#8c794e" opacity=".25"/>
+  <circle cx="607" cy="316" r="11" fill="#8c794e" opacity=".18"/>
+  <path d="M283 220H517V348H283Z" fill="#fffcf4" stroke="#8c794e" stroke-width="7"/>
+  <path d="M271 221L400 148L529 221Z" fill="#d7c69b" stroke="#8c794e" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M400 148V99M400 101H448L430 117H400" fill="#b2bf93" stroke="#8c794e" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M379 348V283Q400 263 421 283V348" fill="#e7dab7" stroke="#8c794e" stroke-width="6"/>
+  <g fill="#b4c4c2"><rect x="307" y="250" width="32" height="32" rx="3"/><rect x="461" y="250" width="32" height="32" rx="3"/></g>
+  <circle cx="400" cy="210" r="22" fill="#fffdf7" stroke="#8c794e" stroke-width="5"/><path d="M400 198V211L409 216" fill="none" stroke="#8c794e" stroke-width="4" stroke-linecap="round"/>
+</svg>

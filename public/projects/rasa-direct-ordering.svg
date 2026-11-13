@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Rasa by Gulab project illustration</title>
+  <desc id="desc">A simple plate, cutlery, and a small botanical sprig. A thematic illustration, not a product screenshot.</desc>
+  <rect width="800" height="480" fill="#f7eee6"/>
+  <circle cx="400" cy="240" r="161" fill="#edddcf"/>
+  <circle cx="197" cy="164" r="8" fill="#8d6046" opacity=".25"/>
+  <circle cx="607" cy="316" r="11" fill="#8d6046" opacity=".18"/>
+  <circle cx="402" cy="242" r="98" fill="#fffaf4" stroke="#8d6046" stroke-width="7"/>
+  <circle cx="402" cy="242" r="72" fill="none" stroke="#d4b39a" stroke-width="4"/>
+  <path d="M260 154V330M241 156V207Q260 229 279 207V156M552 154V330M552 154Q511 200 552 246" fill="none" stroke="#8d6046" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M372 272Q396 223 436 205" fill="none" stroke="#778969" stroke-width="6" stroke-linecap="round"/>
+  <path d="M389 245Q359 218 379 200Q405 211 389 245M410 222Q407 190 435 184Q447 211 410 222" fill="#a5b18d"/>
+</svg>

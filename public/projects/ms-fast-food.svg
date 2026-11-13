@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">MS Fast Food Point project illustration</title>
+  <desc id="desc">A simple warm serving bowl with steam and chopsticks. A thematic illustration, not a product screenshot.</desc>
+  <rect width="800" height="480" fill="#fbefe7"/>
+  <circle cx="400" cy="240" r="161" fill="#f4dcc9"/>
+  <circle cx="197" cy="164" r="8" fill="#9c6443" opacity=".25"/>
+  <circle cx="607" cy="316" r="11" fill="#9c6443" opacity=".18"/>
+  <path d="M281 240H519Q500 331 400 331Q300 331 281 240Z" fill="#fff8ef" stroke="#9c6443" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M272 238H528M345 345H455" stroke="#9c6443" stroke-width="8" stroke-linecap="round"/>
+  <path d="M347 205C325 184 365 173 347 149M398 205C376 184 416 173 398 149" fill="none" stroke="#d3a37d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M460 222L501 125M482 225L529 141" stroke="#9c6443" stroke-width="7" stroke-linecap="round"/>
+  <path d="M371 276Q400 295 430 276" fill="none" stroke="#d3a37d" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,138 @@
+VIKAS BHARDWAJ
+Full-Stack & Applied AI Product Engineer
+Jammu & Kashmir, India
+
+Email: vbvoxe@gmail.com
+Portfolio: https://portfolio-vikas-eosin.vercel.app
+GitHub: https://github.com/vikas-bhar
+LinkedIn: https://www.linkedin.com/in/vikas-bhardwaj-5438083b4
+
+PROFESSIONAL SUMMARY
+--------------------
+Full-stack and applied AI product engineer based in Jammu & Kashmir, building end-to-end web applications, agentic workflows, and native browser/system tools. I focus on practical software under real-world constraints, from offline-first access and telemetry pipelines to network-level filtering and direct-ordering prototypes.
+
+TECHNICAL CAPABILITIES
+--------------------
+FRONTEND & FULL-STACK WEB
+Next.js & React, TypeScript / JavaScript, Tailwind CSS, HTML5 / CSS3, Supabase Auth & Postgres, REST APIs
+
+APPLIED AI & AUTOMATION
+Multi-agent workflows, Local LLM optimization, Hindi / Hinglish TTS, Vocoder pipelines, Playwright / Puppeteer, Headless browser automation
+
+SYSTEMS & EXTENSION ENGINEERING
+Chrome Manifest V3, Network filtering / declarativeNetRequest, C++ native daemons, esbuild, Android Accessibility Services
+
+CLOUD, DEVOPS & DEPLOYMENT
+Vercel & Netlify, Oracle Cloud Always Free VMs, Koyeb, Git / GitHub CI/CD, DNS & domain management
+
+PROJECTS & SELECTED WORK
+--------------------
+1. Kisan Sathi
+   DTU · SEVA2026 Challenge
+   Expo / React Native | Offline-first | ML inference | Vercel
+   Problem: Rural farmers need timely crop and market guidance without depending on a stable connection or an English-only interface.
+   Architecture: Expo / React Native client, offline-first caching, and ML-backed crop-assistance flows, with a web build deployed on Vercel.
+   Impact: Built for DTU’s SEVA2026 Challenge around low-connectivity rural use. The live onboarding offers English, Hindi, Dogri, and Urdu.
+   Live demo: https://kisan-saathi-indol.vercel.app (public page checked 2026-11-11)
+   GitHub: Private repository — request access: vbvoxe@gmail.com
+   Verification: Public onboarding retrieved; Expo web build confirmed in Vercel. Offline and ML behavior have not been independently tested.
+
+2. AEO Pulse
+   Live telemetry gateway
+   Express | Supabase | Telemetry pipelines | WebMCP
+   Problem: Traditional traffic dashboards give little visibility into how AI crawlers and answer engines access a website.
+   Architecture: The supplied live gateway uses Express, Supabase telemetry, and script / edge / middleware ingestion, with AEO auditing and a WebMCP tool dispatcher.
+   Impact: Brings crawler events and AI-search readiness checks into one inspectable dashboard, replacing scattered tracking with a centralized telemetry flow.
+   Live demo: https://unknown-alpha-two.vercel.app (public page checked 2026-11-11)
+   GitHub: Private repository — request access: vbvoxe@gmail.com
+   Verification: Public telemetry UI retrieved; Express deployment confirmed in Vercel. Authentication and write APIs have not been tested.
+
+3. FocusPulse
+   Builder-provided architecture
+   C++ daemon | Chrome MV3 | esbuild | Android Accessibility
+   Problem: Tab timers are easy to bypass. Short-video loops span browsers and native apps, so focus needs enforcement beyond a single page.
+   Architecture: C++ host daemon integrated with a Chrome Manifest V3 extension and declarativeNetRequest filtering; esbuild tooling and Android Accessibility Services extend the approach.
+   Impact: Designed to connect native-process control with browser-level filtering, addressing distraction at the system boundary rather than the UI alone.
+   Live demo: Unavailable — No public FocusPulse demo has been supplied or verified.
+   GitHub: Unverified — request a walkthrough: vbvoxe@gmail.com
+   Verification: Architecture is supplied by the builder. Public demo, source, and working-UI capture are pending verification.
+
+4. Rasa by Gulab — Direct-Ordering Prototype
+   Concept prototype · not an official restaurant site
+   Next.js | Direct ordering | WhatsApp handoff | Vercel
+   Problem: Local restaurants need a direct digital ordering channel without making every customer interaction depend on delivery marketplaces and their fees.
+   Architecture: Next.js menu and cart experience, a WhatsApp order handoff, and a Vercel deployment. Sample business details are explicitly labeled in the prototype.
+   Impact: Makes a direct-ordering customer journey tangible for hospitality pitches. It is a concept—not a confirmed client launch or a claim of realized fee savings.
+   Live demo: https://rasa-by-gulab.vercel.app (public page checked 2026-11-11)
+   GitHub: Private repository — request access: vbvoxe@gmail.com
+   Verification: Public concept page, menu, and ordering controls retrieved. No order was submitted and no commercial outcome is claimed.
+
+5. Venus AI
+   Earlier project · original demo needs a new URL
+   React | TypeScript | LLMs | Tailwind CSS
+   An AI application exploring conversational interfaces, generative reasoning, and responsive workflows.
+   Live demo: Unavailable — The previously supplied Venus AI URL now serves Veda Scholar, not Venus AI. An updated project URL is needed.
+   GitHub: Unverified — request a walkthrough: vbvoxe@gmail.com
+   Verification: Original project retained. On 2026-11-11 the former deployment showed Veda Scholar / JK exam preparation, so it is not presented as a verified Venus AI demo.
+
+6. Sheet Craft
+   Earlier project · public landing page checked
+   Next.js | React | Spreadsheets
+   An AI-assisted workspace for turning text, files, and images into organized Google Sheets, with a guest/offline demo entry.
+   Live demo: https://sheet-craft-two.vercel.app (public page checked 2026-11-11)
+   GitHub: Unverified — request a walkthrough: vbvoxe@gmail.com
+   Verification: Public sign-in and guest-demo landing page retrieved. Google account access and spreadsheet-writing behavior were not tested.
+
+7. PrepStudy Platform
+   Earlier project · academic tools
+   Next.js | React | Tailwind CSS
+   An academic-assistance interface with subject detection, question and answer input, image upload, and an AI answer-evaluation workflow.
+   Live demo: https://prepsudy.vercel.app (public page checked 2026-11-11)
+   GitHub: Unverified — request a walkthrough: vbvoxe@gmail.com
+   Verification: Public PrepStudy academic-intelligence UI retrieved. No file was uploaded and no evaluation was submitted.
+
+8. Arora Tech
+   Earlier project · storefront prototype
+   React | Next.js | E-Commerce
+   A responsive laptop storefront with categorized refurbished machines, product details, and shopping-oriented interactions.
+   Live demo: https://arora-tech.vercel.app (public page checked 2026-11-11)
+   GitHub: Unverified — request a walkthrough: vbvoxe@gmail.com
+   Verification: Public refurbished-laptop catalog retrieved. Transactions, inventory accuracy, testimonials, and commercial claims were not verified.
+
+9. MS Fast Food Point
+   Earlier project · restaurant ordering UI
+   React | Tailwind CSS | Ordering UI
+   A mobile-first restaurant experience with menu categories, food selections, price sorting, and an order-building interface.
+   Live demo: https://ms-fast-food-point.vercel.app (public page checked 2026-11-11)
+   GitHub: Unverified — request a walkthrough: vbvoxe@gmail.com
+   Verification: Public restaurant menu and ordering controls retrieved. No order was placed; delivery-time and nutrition claims were not verified.
+
+10. LSSS School
+   Earlier project · academic portal
+   React | TypeScript | School portal
+   A school information portal bringing academic programs, admissions, institutional information, and a classroom-portal entry into one experience.
+   Live demo: https://lsss-school-sage.vercel.app (public page checked 2026-11-11)
+   GitHub: Unverified — request a walkthrough: vbvoxe@gmail.com
+   Verification: The original custom domain littlestarseniorsecondaryschooljuria.com could not be retrieved. The previously supplied Vercel alternative was retrieved successfully. Portal login and institutional claims were not tested.
+
+11. Rahat Hospital & Research Centre
+   Earlier project · deployment unavailable
+   React | TypeScript | Healthcare
+   A healthcare information portal concept for clinical departments, medical services, consultation details, and emergency-care access.
+   Live demo: Unavailable — The previously supplied deployment currently returns DEPLOYMENT_NOT_FOUND.
+   GitHub: Unverified — request a walkthrough: vbvoxe@gmail.com
+   Verification: Project retained, but its deployment returned a Vercel 404 / DEPLOYMENT_NOT_FOUND page on 2026-11-11. No medical-service availability is implied.
+
+EXPERIENCE & MILESTONES
+--------------------
+Founder & Lead Builder
+Vision Start / Zenastra Industries
+Building full-stack web prototypes, direct-ordering platforms, and custom digital pitches for local hospitality, alongside automated digital-marketing pipelines.
+
+National & Global Hackathon Builder
+SEVA2026 (DTU) · Devpost builds
+Built and submitted prototypes for SEVA2026 (DTU), RevenueCat Shipaton, Agentic Cinema, and Build with Gemini XPRIZE.
+
+Community & Open Ecosystems
+GDG Jammu (Build with AI) · Hack Club
+Learning and building through local developer communities and open ecosystems, including GDG Jammu’s Build with AI and Hack Club.

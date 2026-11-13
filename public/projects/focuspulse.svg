@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">FocusPulse project illustration</title>
+  <desc id="desc">A simple protective shield and a focused check mark. A thematic illustration, not a product screenshot.</desc>
+  <rect width="800" height="480" fill="#eeeefa"/>
+  <circle cx="400" cy="240" r="161" fill="#dedcf3"/>
+  <circle cx="197" cy="164" r="8" fill="#635784" opacity=".25"/>
+  <circle cx="607" cy="316" r="11" fill="#635784" opacity=".18"/>
+  <path d="M400 127L503 169V240C503 302 459 342 400 367C341 342 297 302 297 240V169Z" fill="#f9f8ff" stroke="#635784" stroke-width="8" stroke-linejoin="round"/>
+  <circle cx="400" cy="237" r="56" fill="#dedcf3"/>
+  <path d="M370 237L392 258L431 215" fill="none" stroke="#635784" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M244 222H265M535 222H556M254 278H274M526 278H546" stroke="#aaa0c7" stroke-width="7" stroke-linecap="round"/>
+</svg>
