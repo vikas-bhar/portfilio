@@ -51,6 +51,7 @@ The original Hero/About portrait JPGs and generated WebPs, the portrait optimize
 - `package.json`/lockfile: reproducible runtime, build, lint/type/format/component/server/browser checks.
 - `vite.config.ts`: client build, lazy WebGL/validation splitting, allowed preview hosts.
 - `vercel.json`: complete repo deployment, API functions, runtime page metadata, résumé redirects, caching/security headers.
+- `docs/DOMAIN_SETUP.md`, `docs/is-a-dev/domains/`: preparation for the owner-approved `vikas.is-a.dev` domain; proposed A routing preserves the existing Zoho MX/TXT records, and the separate Vercel verification template remains unfinished until its real TXT value is available. These files do not change live DNS.
 - `.env.example`: server-only configuration names with no actual credentials.
 - `.portfolio-data/`: ignored owner records and setup key. Never serve, commit, or copy into static output.
 - `.portfolio-test-data/`: ignored, isolated browser-fixture records. Never used by the owner's preview.

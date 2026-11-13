@@ -1,0 +1,8 @@
+{
+  "owner": {
+    "username": "vikki-k-s"
+  },
+  "records": {
+    "TXT": "REPLACE_WITH_THE_EXACT_VERIFICATION_TXT_VALUE_FROM_VERCEL"
+  }
+}

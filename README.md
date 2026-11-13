@@ -113,7 +113,7 @@ docs/                Admin setup, verification, and file organization
 
 For Vercel, deploy the **repository**, not just static output. `vercel.json` configures Vite's build, Node API functions, the included `dist/index.html` page template, runtime page/metadata rewrites, résumé redirects, and security/cache headers. The private Blob token and one-time setup key are server-only environment variables. The connector available in this session does not expose Blob provisioning; no store, secrets, or production deployment was created automatically.
 
-The canonical default is `https://portfolio-vikas-eosin.vercel.app/`. The Arena live preview and local checks **do not update that production deployment**.
+The intended canonical URL for this branch is **`https://vikas.is-a.dev/`**. [Custom domain setup](docs/DOMAIN_SETUP.md) includes the proposed is-a.dev DNS update, the unfinished Vercel TXT template, a mail-preserving migration checklist, and the published-CMS URL step. **DNS connection and Vercel ownership verification are still pending.** File changes and the Arena preview do not connect the domain or update production.
 
 Dependencies are locked. `minimatch` is overridden to patched 11.x, and `zod: "$zod"` aligns the nested Blob tooling copy with the patched direct dependency. Review overrides during upgrades. Generated output, browser artifacts, private CMS records, environment files, and deployment credentials are ignored by Git.
 

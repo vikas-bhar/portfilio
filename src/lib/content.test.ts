@@ -5,6 +5,7 @@ import { milestones, profile, projects, skillGroups } from '../data/portfolio';
 import { createMailtoLink } from './contact';
 import { createSourceRequestLink } from './projects';
 import { createResumeText } from './resume';
+import { createResumeHtml } from './resume-html';
 
 const escape = (value: string) => value.replaceAll('&', '&amp;');
 
@@ -49,6 +50,21 @@ describe('canonical product-engineering content', () => {
     );
     expect(html).toContain('href="https://github.com/vikas-bhar"');
     expect(html).not.toContain('github.com/bhardwajvikas316-star');
+  });
+
+  it('prepares the owner-approved custom domain in the profile and résumé exports', () => {
+    const website = 'https://vikas.is-a.dev';
+    expect(profile.website).toBe(website);
+    expect(createResumeText()).toContain(`Portfolio: ${website}`);
+    expect(createResumeHtml()).toContain(`href="${website}"`);
+    for (const extension of ['html', 'txt']) {
+      const exported = readFileSync(
+        new URL(`../../public/resume/Vikas_Bhardwaj_Resume.${extension}`, import.meta.url),
+        'utf8',
+      );
+      expect(exported).toContain(website);
+      expect(exported).not.toContain('portfolio-vikas-eosin.vercel.app');
+    }
   });
 
   it('uses valid HTTPS URLs while distinguishing unavailable and private destinations', () => {
