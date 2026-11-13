@@ -18,9 +18,9 @@ const readRecord = (filename: string) =>
   ) as RegistryEntry;
 
 describe('vikas.is-a.dev connection package', () => {
-  it('prepares A routing without a CNAME that would conflict with the existing mail records', () => {
+  it('prepares the owner-supplied A routing without a CNAME that would conflict with existing mail records', () => {
     const entry = readRecord('vikas.json');
-    expect(entry.records.A).toEqual(['76.76.21.21']);
+    expect(entry.records.A).toEqual(['216.198.79.1']);
     expect(entry.records).not.toHaveProperty('CNAME');
   });
 

@@ -4,19 +4,21 @@
 
 ## Prepared files
 
-| File                                               | Purpose                                                                                                                                                                                                                    |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `docs/is-a-dev/domains/vikas.json`                 | Proposed update to the existing registry entry. Replaces the website's GitHub Pages A records with Vercel's recommended A record; preserves the registered owner, all three Zoho MX records, and all existing TXT records. |
-| `docs/is-a-dev/domains/_vercel.vikas.json.example` | **Unfinished template**, not a submission-ready record. Fill it with Vercel's actual domain-verification TXT value and remove `.example` before submitting.                                                                |
-| `src/data/portfolio.ts`                            | Factory portfolio URL set to `https://vikas.is-a.dev`.                                                                                                                                                                     |
-| `index.html`                                       | Matching fallback canonical and Open Graph URLs.                                                                                                                                                                           |
-| `public/resume/Vikas_Bhardwaj_Resume.{html,txt}`   | Regenerated factory résumé exports with the intended custom URL.                                                                                                                                                           |
+| File                                               | Purpose                                                                                                                                                                                                                                         |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `docs/is-a-dev/domains/vikas.json`                 | Proposed registry update using the owner's supplied A value (`216.198.79.1`); preserves the registered owner, all three Zoho MX records, and all existing TXT records. Confirm routing in the correct project's Domains page before submission. |
+| `docs/is-a-dev/domains/_vercel.vikas.json.example` | **Unfinished template**, not a submission-ready record. Fill it with Vercel's actual domain-verification TXT value and remove `.example` before submitting.                                                                                     |
+| `src/data/portfolio.ts`                            | Factory portfolio URL set to `https://vikas.is-a.dev`.                                                                                                                                                                                          |
+| `index.html`                                       | Matching fallback canonical and Open Graph URLs.                                                                                                                                                                                                |
+| `public/resume/Vikas_Bhardwaj_Resume.{html,txt}`   | Regenerated factory résumé exports with the intended custom URL.                                                                                                                                                                                |
 
 **Do not cut over DNS or deploy this branch's new canonical URL until the correct portfolio deployment is ready.** The old Vercel address remains available in Git history; no host-wide redirect is introduced by these changes.
 
 ## 1. Identify and prepare the correct Vercel project
 
-Use the project connected to **`vikas-bhar/portfilio`**, not one of the showcased project demos. The connected Vercel account did not return a matching project when searched for `portfolio`, `port`, or `vikas`; a matching project and verification token have not been obtained. This does not prove the site is absent from another account or named differently. Supply the correct project link, or open it manually in Vercel.
+The connected project is now identified as **[vikas](https://vercel.com/vbvoxe-9513s-projects/vikas)**, linked to **`vikas-bhar/portfilio`** with `main` as its production branch. Its existing production alias is **`https://vikas-dun.vercel.app`**. Earlier searches did not find it; a later read confirmed this project and its repository link. Do not use one of the showcased project demos instead.
+
+**Important spelling mismatch:** the project currently lists `vikas-is-a.dev` and `www.vikas-is-a.dev` (a **hyphen** after `vikas`). These are different domains from the owner-approved **`vikas.is-a.dev`** (a **dot** after `vikas`). The requested dot-separated domain is not yet in the project's domain list, so no verification TXT value for it has been obtained. Do not reuse the hyphenated domain's verification status, change the intended canonical address to it, or remove existing domains without approval. No Vercel domain settings were changed during this preparation.
 
 - Deploy the **complete repository**, with `vercel.json` and `api/`, using Node 22 LTS or a compatible newer LTS version. Do not deploy only `dist/` or switch this app to static GitHub Pages: the admin requires its server/API.
 - Confirm the Vercel production deployment serves the intended portfolio, `/api/site`, `/api/resume/html`, `/api/resume/text`, and `/admin` before changing DNS.
@@ -32,14 +34,14 @@ vikas.is-a.dev
 
 Attach it to the production site. Disable any suggested redirect to `www.vikas.is-a.dev`; that would require an additional nested registration. Use the manual DNS instructions and copy the exact routing and ownership-verification records that Vercel shows. The official is-a.dev guide describes this flow. [1](https://docs.is-a.dev/guides/vercel/)
 
-The connected Vercel DNS-configuration API currently recommends:
+The prepared records now reflect the owner's latest supplied A value:
 
-| Type                       | Full hostname            | Prepared value                                                    |
-| -------------------------- | ------------------------ | ----------------------------------------------------------------- |
-| A                          | `vikas.is-a.dev`         | `76.76.21.21`                                                     |
-| TXT, if Vercel requests it | `_vercel.vikas.is-a.dev` | **Pending: copy the exact value from the correct Vercel project** |
+| Type                       | Full hostname            | Prepared value                                                                  |
+| -------------------------- | ------------------------ | ------------------------------------------------------------------------------- |
+| A                          | `vikas.is-a.dev`         | `216.198.79.1` — owner-supplied; confirm in the exact domain's project settings |
+| TXT, if Vercel requests it | `_vercel.vikas.is-a.dev` | **Pending: copy the exact value from the correct Vercel project**               |
 
-The A value was returned by Vercel for this domain, **not** inferred from the existing deployment URL. Recheck the project's Domains page before submission; if it gives a different A value, update `records.A` in `vikas.json` accordingly. The verification hostname must also match the actual Vercel instructions; if Vercel requests a different TXT hostname, use its corresponding registry filename instead of guessing.
+The prepared A value comes from the owner's supplied snippet, **not** a completed project-specific verification. The separate DNS-configuration API still returned `76.76.21.21` while the requested domain was unattached. **Do not combine both addresses or assume either response verifies the domain.** Add the exact dot-separated domain to the correct project, then use the routing value its Domains page assigns before submitting the registry update. If that value differs, update `records.A` in `vikas.json` accordingly. The verification hostname must also match the actual Vercel instructions; if Vercel requests a different TXT hostname, use its corresponding registry filename instead of guessing.
 
 The example file deliberately contains `REPLACE_WITH_THE_EXACT_VERIFICATION_TXT_VALUE_FROM_VERCEL`. **Never submit that placeholder.** A DNS verification TXT value is public record content; it is not a Vercel API token, admin password, or environment secret.
 
