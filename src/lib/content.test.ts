@@ -52,8 +52,8 @@ describe('canonical product-engineering content', () => {
     expect(html).not.toContain('github.com/bhardwajvikas316-star');
   });
 
-  it('prepares the owner-approved custom domain in the profile and résumé exports', () => {
-    const website = 'https://vikas.is-a.dev';
+  it('prepares the owner-approved free subdomain in the profile and résumé exports', () => {
+    const website = 'https://vikas-portfolio.is-a.dev';
     expect(profile.website).toBe(website);
     expect(createResumeText()).toContain(`Portfolio: ${website}`);
     expect(createResumeHtml()).toContain(`href="${website}"`);
@@ -63,7 +63,14 @@ describe('canonical product-engineering content', () => {
         'utf8',
       );
       expect(exported).toContain(website);
-      expect(exported).not.toContain('portfolio-vikas-eosin.vercel.app');
+      for (const previousAddress of [
+        'https://vikas.is-a.dev',
+        'https://vikas-is-a.dev',
+        'https://www.vikas-is-a.dev',
+        'https://vikas-porfolio.is-a.dev',
+        'portfolio-vikas-eosin.vercel.app',
+      ])
+        expect(exported).not.toContain(previousAddress);
     }
   });
 

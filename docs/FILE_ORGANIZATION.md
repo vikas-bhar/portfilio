@@ -51,7 +51,8 @@ The original Hero/About portrait JPGs and generated WebPs, the portrait optimize
 - `package.json`/lockfile: reproducible runtime, build, lint/type/format/component/server/browser checks.
 - `vite.config.ts`: client build, lazy WebGL/validation splitting, allowed preview hosts.
 - `vercel.json`: complete repo deployment, API functions, runtime page metadata, résumé redirects, caching/security headers.
-- `docs/DOMAIN_SETUP.md`, `docs/is-a-dev/domains/`: preparation for the owner-approved `vikas.is-a.dev` domain; proposed A routing preserves the existing Zoho MX/TXT records, and the separate Vercel verification template remains unfinished until its real TXT value is available. These files do not change live DNS.
+- `docs/DOMAIN_SETUP.md`, `docs/is-a-dev/domains/`: the selected `vikas-portfolio.is-a.dev` free-subdomain registration package, with A routing and the real Vercel-issued TXT value. The hostname is attached to the existing Vercel project, but the separate is-a.dev registry still needs submission/approval before DNS can go live.
+- `docs/archive/is-a-dev/`: superseded proposed files for `vikas.is-a.dev`, preserved unchanged with their old owner/mail data. Do not submit them for the new name.
 - `.env.example`: server-only configuration names with no actual credentials.
 - `.portfolio-data/`: ignored owner records and setup key. Never serve, commit, or copy into static output.
 - `.portfolio-test-data/`: ignored, isolated browser-fixture records. Never used by the owner's preview.
