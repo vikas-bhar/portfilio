@@ -17,7 +17,7 @@ export const profile = {
   email: 'vbvoxe@gmail.com',
   github: 'https://github.com/vikas-bhar',
   linkedin: 'https://www.linkedin.com/in/vikas-bhardwaj-5438083b4',
-  website: 'https://vikas.is-a.dev',
+  website: 'https://vikas-portfolio.is-a.dev',
   heroSummary:
     'I architect and ship end-to-end web applications, agentic AI workflows, and native browser/system tools—taking fuzzy real-world problems from zero to live deployment.',
   summary:

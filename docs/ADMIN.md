@@ -70,9 +70,9 @@ On Vercel without a Blob token, public factory content is still readable, but se
 
 `.env.example` lists supported variables. Locally, the server loads `.env` and then `.env.local`; keep actual values out of the repository.
 
-## Custom domain: `vikas.is-a.dev`
+## Free custom subdomain: `vikas-portfolio.is-a.dev`
 
-See [Custom domain setup](DOMAIN_SETUP.md) for the prepared registry records and cutover checklist. The existing registration is owner-confirmed under `vikki-k-s`; its Zoho mail records are preserved. The intended factory/canonical URL is now `https://vikas.is-a.dev`, but live DNS, Vercel project attachment, and the actual verification TXT value are still pending.
+See [Custom domain setup](DOMAIN_SETUP.md) for the complete registration files and cutover checklist. The owner chose this new free subdomain, using GitHub account `vikas-bhar`. Its exact hostname has been added to the existing Vercel project, and the active files include the real issued verification TXT value. Registry submission/approval, DNS propagation, Vercel verification, and HTTPS checks remain pending. The intended factory/canonical URL is `https://vikas-portfolio.is-a.dev`; the old owner's mail records from `vikas.is-a.dev` remain archived and are not copied to this different name.
 
 If shared content has already been published, update only the profile's **Portfolio URL / canonical address** through Save draft → Preview → Publish after the custom domain is ready. A redeploy does not overwrite that stored URL. Sign in again on the new host: cookies and browser preferences remain host-scoped, with the existing same-origin and CSRF protections unchanged.
 
