@@ -3,49 +3,62 @@
    -------------------------------------------------------------------------- */
 :root {
   font-family:
-    'Geist Variable',
+    'DM Sans Variable',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
     sans-serif;
-  color: #f0f0ed;
-  background: #0a0b0c;
+  color: #f2e3c7;
+  background: #353332;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --bg: #0a0b0c;
-  --surface: #101214;
-  --surface-hover: #171a1c;
-  --section-bg: #0d0f10;
-  --text: #f0f0ed;
-  --muted: #999e9f;
-  --faint: #81898a;
-  --line: #262a2b;
-  --line-strong: #3c4443;
-  --accent: var(--site-accent-dark, #b4ecc5);
-  --button-bg: #efefea;
-  --button-text: #151817;
-  --header-bg: rgb(10 11 12 / 88%);
+  --bg: #353332;
+  --surface: #3c3937;
+  --surface-hover: #48413c;
+  --section-bg: #302e2d;
+  --text: #f2e3c7;
+  --muted: #c5b49d;
+  --faint: #bdad98;
+  --line: #625750;
+  --line-strong: #8a776a;
+  --accent: var(--site-accent-dark, #e2ac3e);
+  --button-bg: #e2ac3e;
+  --button-text: #251c11;
+  --header-bg: rgb(53 51 50 / 94%);
+  --wall-rust: #95674f1f;
+  --wall-shade: #17212626;
+  --body: 'DM Sans Variable', Arial, sans-serif;
+  --heading: 'Bricolage Grotesque Variable', Arial, sans-serif;
+  --editorial: 'Fraunces Variable', Georgia, serif;
   --mono: 'Geist Mono Variable', 'SFMono-Regular', Consolas, monospace;
+  --paper: #eadabd;
+  --paper-light: #f4e8d0;
+  --paper-ink: #30251b;
+  --paper-muted: #685440;
+  --paper-line: #c0aa87;
+  --gold: #e2ac3e;
   color-scheme: dark;
 }
 
 :root[data-theme='light'] {
-  color: #1c2420;
-  background: #f7f7f2;
-  --bg: #f7f7f2;
-  --surface: #efefea;
-  --surface-hover: #e7e8e0;
-  --section-bg: #efefe9;
-  --text: #1c2420;
-  --muted: #5b645f;
-  --faint: #626b64;
-  --line: #d6d9d0;
-  --line-strong: #b5bdb2;
-  --accent: var(--site-accent-light, #326146);
-  --button-bg: #202d25;
-  --button-text: #f9faf4;
-  --header-bg: rgb(247 247 242 / 90%);
+  color: #30251b;
+  background: #e3dfd9;
+  --bg: #e3dfd9;
+  --surface: #d8d1c8;
+  --surface-hover: #cdbfb0;
+  --section-bg: #dcd6ce;
+  --text: #30251b;
+  --muted: #685440;
+  --faint: #685440;
+  --line: #bfb3a5;
+  --line-strong: #95816e;
+  --accent: var(--site-accent-light, #805224);
+  --button-bg: #30251b;
+  --button-text: #f4e8d0;
+  --header-bg: rgb(227 223 217 / 94%);
+  --wall-rust: #95674f0d;
+  --wall-shade: #ffffff1a;
   color-scheme: light;
 }
 
@@ -54,7 +67,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 80px;
 }
 body {
   margin: 0;
@@ -64,7 +77,7 @@ body,
 button,
 input,
 textarea {
-  font-family: 'Geist Variable', sans-serif;
+  font-family: var(--body);
 }
 button,
 input,

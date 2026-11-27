@@ -16,7 +16,7 @@ export function useTheme(defaultTheme: Theme = 'dark') {
     document.documentElement.dataset.theme = theme;
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', theme === 'dark' ? '#0a0b0c' : '#f7f7f2');
+      ?.setAttribute('content', theme === 'dark' ? '#353332' : '#e3dfd9');
     if (preference)
       try {
         localStorage.setItem('portfolio-theme', preference);

@@ -1,0 +1,235 @@
+/* Shared project-file stationery for the public portfolio, never the private editor.
+ * Only the decorative backing is clipped, so content, focus rings and motion stay intact. */
+.site-shell :is(.paper-card, .paper-colors) {
+  --bg: var(--paper);
+  --text: var(--paper-ink);
+  --muted: var(--paper-muted);
+  --faint: #725b41;
+  --line: var(--paper-line);
+  --line-strong: #a68b66;
+  --accent: var(--site-accent-light, #805224);
+  --surface: #efdfc2;
+  --surface-hover: #decaab;
+  --section-bg: #dfcdad;
+  --button-bg: #30251b;
+  --button-text: #f4e8d0;
+  color: var(--text);
+  color-scheme: light;
+}
+.site-shell .paper-card {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  padding: 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  filter: var(--paper-shadow, drop-shadow(3px 6px 4px #100d0945));
+  overflow-wrap: anywhere;
+}
+.site-shell .paper-card::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    url('/paper-grain.svg'), radial-gradient(ellipse at 2% 8%, #b68d5633, transparent 55%),
+    linear-gradient(110deg, var(--paper), var(--paper-light) 68%, #e4cdab);
+  clip-path: polygon(
+    0 2%,
+    6% 1%,
+    12% 2%,
+    19% 0,
+    27% 1.5%,
+    36% 0.5%,
+    44% 2%,
+    54% 0,
+    63% 1.5%,
+    72% 0.5%,
+    82% 2%,
+    91% 0.5%,
+    98% 2%,
+    99% 8%,
+    98.7% 20%,
+    100% 33%,
+    99% 47%,
+    100% 61%,
+    98.8% 76%,
+    100% 90%,
+    98% 98%,
+    91% 99%,
+    83% 98%,
+    75% 100%,
+    67% 98.5%,
+    58% 100%,
+    48% 98%,
+    39% 99.5%,
+    30% 98%,
+    20% 100%,
+    12% 98.5%,
+    4% 100%,
+    1% 97%,
+    0 87%,
+    1% 72%,
+    0 59%,
+    1% 45%,
+    0 30%,
+    1% 16%
+  );
+  pointer-events: none;
+}
+.site-shell .paper-card-note {
+  --paper-shadow: drop-shadow(2px 3px 2px #100d0930);
+}
+.site-shell .paper-label {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 3px 6px;
+  background: #e5b64f url('/paper-grain.svg');
+  color: #352313;
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.site-shell .paper-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+.site-shell .paper-chip,
+.site-shell .paper-chips > li {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 2px;
+  background: #3d3024;
+  color: #f9ecd2;
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 550;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.site-shell .paper-chips > li::before,
+.site-shell .paper-chips > li::after {
+  content: none;
+}
+
+/* Mounted original icon prints echo the Projects artwork, without inventing photos. */
+.paper-mount {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  margin-block: 8px;
+}
+.paper-illustration {
+  width: 100%;
+  max-width: 138px;
+  margin-inline: 3px;
+  --art-paper: #ccd2aa;
+  --art-ink: #3d462e;
+}
+.paper-illustration[data-tone='lavender'] {
+  --art-paper: #cbbfda;
+  --art-ink: #4c3d64;
+}
+.paper-illustration[data-tone='ochre'] {
+  --art-paper: #e1bd76;
+  --art-ink: #66421d;
+}
+.paper-illustration[data-tone='rose'] {
+  --art-paper: #dbb4a7;
+  --art-ink: #6d4035;
+}
+.paper-mount::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -7% 4% -8% -2%;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 13px, #68573c30 13px 14px),
+    repeating-linear-gradient(90deg, transparent 0 13px, #68573c30 13px 14px),
+    #dcc6a2 url('/paper-grain.svg');
+  transform: rotate(7deg);
+  box-shadow: 1px 2px 3px #73583040;
+}
+.paper-print {
+  position: relative;
+  padding: 7px 7px 16px;
+  background: var(--paper-light) url('/paper-grain.svg');
+  box-shadow: 3px 5px 8px #34220d55;
+  transform: rotate(-5deg);
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease;
+}
+.paper-illustration[data-tone='lavender'] .paper-print,
+.paper-illustration[data-tone='rose'] .paper-print {
+  transform: rotate(4deg);
+}
+.paper-print::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 45%;
+  height: 17px;
+  top: -8px;
+  left: 30%;
+  background: #c991388f url('/paper-grain.svg');
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+.paper-illustration[data-tone='ochre'] .paper-print::after {
+  width: 10px;
+  height: 25px;
+  left: 74%;
+  border: 2px solid #9b632d;
+  border-radius: 8px;
+  background: none;
+  transform: rotate(15deg);
+}
+.paper-icon-art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  color: var(--art-ink);
+  background:
+    radial-gradient(ellipse at 30% 15%, #fff6dc45, transparent 65%),
+    var(--art-paper) url('/paper-grain.svg');
+  border: 1px solid #38281b18;
+}
+.paper-icon-art > svg {
+  width: 57%;
+  height: auto;
+}
+.site-shell .paper-index {
+  position: absolute;
+  z-index: 2;
+  left: -8px;
+  top: -10px;
+  padding: 3px 6px;
+  background: var(--gold) url('/paper-grain.svg');
+  color: var(--paper-ink);
+  font-family: var(--editorial);
+  font-size: 18px;
+  font-weight: 650;
+  transform: rotate(-6deg);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .paper-card:is(:hover, :focus-within) .paper-print {
+    transform: translateY(-3px) rotate(0);
+    box-shadow: 3px 8px 12px #34220d55;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .paper-print {
+    transition: none;
+  }
+}

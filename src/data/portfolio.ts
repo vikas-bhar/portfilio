@@ -534,8 +534,8 @@ export const defaultContent = siteContentSchema.parse({
   settings: {
     metaDescription:
       'Vikas Bhardwaj — full-stack and applied AI product engineer in Jammu & Kashmir. End-to-end web apps, agentic workflows, and native browser/system tools.',
-    accentDark: '#b4ecc5',
-    accentLight: '#326146',
+    accentDark: '#e2ac3e',
+    accentLight: '#805224',
     defaultTheme: 'dark',
     animations: true,
     resumeEnabled: true,

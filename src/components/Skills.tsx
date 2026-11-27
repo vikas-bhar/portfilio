@@ -2,6 +2,7 @@ import { BrainCircuit, Cloud, Code2, Shield } from 'lucide-react';
 import { useSiteContent } from '../hooks/useSiteContent';
 import Floating3DWrapper from './Floating3DWrapper';
 import TiltCard from './TiltCard';
+import PaperIcon from './PaperIcon';
 
 const icons = { ai: BrainCircuit, frontend: Code2, systems: Shield, cloud: Cloud };
 
@@ -42,14 +43,23 @@ export default function Skills() {
                 floating
                 floatDelay={index * 0.25}
               >
-                <article className="skill-card" aria-labelledby={`capability-${group.id}`}>
-                  <div className="skill-card-top">
-                    <Icon size={25} strokeWidth={1.3} aria-hidden="true" />
-                    <span className="mono">PILLAR / 0{index + 1}</span>
+                <article
+                  className="skill-card paper-card"
+                  aria-labelledby={`capability-${group.id}`}
+                >
+                  <div className="skill-card-summary">
+                    <PaperIcon icon={Icon} index={index} />
+                    <div className="skill-card-copy">
+                      <div className="skill-card-top">
+                        <span className="mono paper-label">
+                          PILLAR / {String(index + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+                      <h3 id={`capability-${group.id}`}>{group.title}</h3>
+                      <p>{group.subtitle}</p>
+                    </div>
                   </div>
-                  <h3 id={`capability-${group.id}`}>{group.title}</h3>
-                  <p>{group.subtitle}</p>
-                  <ul className="capability-list">
+                  <ul className="capability-list paper-chips">
                     {group.skills.map((skill) => (
                       <li key={skill}>{skill}</li>
                     ))}
@@ -66,7 +76,7 @@ export default function Skills() {
           floatDelay={0.5}
           enableHoverDepth={false}
         >
-          <div className="learning-note">
+          <div className="learning-note paper-card paper-card-note">
             <span className="status-dot" aria-hidden="true" />
             <span>{copy.skillsNote}</span>
             <span className="mono">WEB ↔ AI ↔ SYSTEMS ↔ CLOUD</span>

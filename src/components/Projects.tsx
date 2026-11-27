@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ArrowUpRight, Box } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ArrowUpRight, Box, Search, SearchX, X } from 'lucide-react';
 import { Github } from './SocialIcons';
 import { AnimatePresence, motion } from 'motion/react';
 import type { ProjectCategory } from '../data/portfolio';
@@ -8,30 +8,44 @@ import TiltCard from './TiltCard';
 import Floating3DWrapper from './Floating3DWrapper';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { useSiteContent } from '../hooks/useSiteContent';
+import { matchesProjectSearch } from '../lib/projects';
 
 const filters = [
-  { id: 'featured', label: 'Featured' },
   { id: 'all', label: 'All projects' },
+  { id: 'featured', label: 'Featured' },
   { id: 'ai', label: 'Applied AI' },
   { id: 'systems', label: 'Systems' },
   { id: 'fullstack', label: 'Full-stack' },
   { id: 'web', label: 'Web' },
 ] as const;
+
 export default function Projects() {
   const { content } = useSiteContent();
   const { profile, copy } = content;
   const projects = content.projects.filter((project) => project.visible);
   const [activeFilter, setActiveFilter] = useState<'featured' | 'all' | ProjectCategory>('all');
+  const [search, setSearch] = useState('');
+  const searchInput = useRef<HTMLInputElement>(null);
   const reducedMotion =
     useMediaQuery('(prefers-reduced-motion: reduce)') || !content.settings.animations;
   const matches = (filter: typeof activeFilter, project: (typeof projects)[number]) =>
     filter === 'all' || (filter === 'featured' ? project.featured : project.category === filter);
-  const visibleProjects = projects.filter((project) => matches(activeFilter, project));
+  const searchedProjects = projects.filter((project) => matchesProjectSearch(project, search));
+  const visibleProjects = searchedProjects.filter((project) => matches(activeFilter, project));
+  const clearSearch = () => {
+    setSearch('');
+    searchInput.current?.focus();
+  };
+  const resetProjects = () => {
+    setActiveFilter('all');
+    clearSearch();
+  };
+
   return (
     <section id="project" className="section work-section" aria-labelledby="work-heading">
       <div className="container">
-        <div className="section-heading">
-          <div>
+        <div className="section-heading project-archive-heading">
+          <div className="project-archive-intro">
             <Floating3DWrapper depth={22} tiltIntensity={16} floatAmplitude={5}>
               <p className="eyebrow section-eyebrow">
                 <span>01</span>
@@ -46,10 +60,42 @@ export default function Projects() {
                 <em>{copy.workAccent}</em>
               </h2>
             </Floating3DWrapper>
+            <Floating3DWrapper depth={12} tiltIntensity={6} floatAmplitude={2} floatDelay={0.4}>
+              <p className="section-description">{copy.workSummary}</p>
+            </Floating3DWrapper>
           </div>
-          <Floating3DWrapper depth={12} tiltIntensity={6} floatAmplitude={2} floatDelay={0.4}>
-            <p className="section-description">{copy.workSummary}</p>
-          </Floating3DWrapper>
+          <div className="project-search">
+            <label htmlFor="project-search">Search projects</label>
+            <div className="project-search-field">
+              <Search size={16} aria-hidden="true" />
+              <input
+                ref={searchInput}
+                id="project-search"
+                type="search"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Escape' && search) {
+                    event.preventDefault();
+                    clearSearch();
+                  }
+                }}
+                placeholder="Project name, technology or keyword"
+                aria-controls="project-grid"
+                aria-describedby="project-result-count"
+              />
+              {search && (
+                <button
+                  type="button"
+                  className="project-search-clear"
+                  aria-label="Clear project search"
+                  onClick={clearSearch}
+                >
+                  <X size={16} aria-hidden="true" />
+                </button>
+              )}
+            </div>
+          </div>
         </div>
         <div className="project-toolbar">
           <div className="project-filters" role="group" aria-label="Filter projects">
@@ -62,6 +108,7 @@ export default function Projects() {
                 floatDelay={index * 0.15}
               >
                 <button
+                  type="button"
                   className={`filter-button ${activeFilter === filter.id ? 'active' : ''}`}
                   onClick={() => setActiveFilter(filter.id)}
                   aria-pressed={activeFilter === filter.id}
@@ -70,17 +117,17 @@ export default function Projects() {
                   {filter.label}
                   <span className="mono">
                     {String(
-                      projects.filter((project) => matches(filter.id, project)).length,
+                      searchedProjects.filter((project) => matches(filter.id, project)).length,
                     ).padStart(2, '0')}
                   </span>
                 </button>
               </Floating3DWrapper>
             ))}
           </div>
-          <span className="project-total mono" aria-live="polite" aria-atomic="true">
-            {String(visibleProjects.length).padStart(2, '0')} /{' '}
-            {String(projects.length).padStart(2, '0')} PROJECTS
-          </span>
+          <p id="project-result-count" className="project-total" role="status" aria-atomic="true">
+            <strong>{visibleProjects.length}</strong>{' '}
+            {visibleProjects.length === 1 ? 'project' : 'projects'}
+          </p>
         </div>
         <motion.div layout={!reducedMotion} className="project-grid" id="project-grid">
           <AnimatePresence mode="popLayout">
@@ -110,16 +157,21 @@ export default function Projects() {
           </AnimatePresence>
         </motion.div>
         {!visibleProjects.length && (
-          <p className="project-empty" role="status">
-            No published projects in this category yet. Choose All projects to explore the
-            collection.
-          </p>
+          <div className="project-empty paper-card">
+            <SearchX size={28} strokeWidth={1.4} aria-hidden="true" />
+            <h3>No matching projects</h3>
+            <p>Try a different keyword or category, or return to the complete collection.</p>
+            <button type="button" className="button button-secondary" onClick={resetProjects}>
+              Reset project filters
+            </button>
+          </div>
         )}
         <div className="project-footer">
-          {activeFilter !== 'all' && (
+          {(activeFilter !== 'all' || search.trim()) && (
             <button
+              type="button"
               className="button button-secondary button-small"
-              onClick={() => setActiveFilter('all')}
+              onClick={resetProjects}
             >
               Show all {projects.length} projects <ArrowUpRight size={15} aria-hidden="true" />
             </button>

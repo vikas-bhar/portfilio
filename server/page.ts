@@ -3,7 +3,9 @@ import { resolve } from 'node:path';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import type { SiteContent } from '../src/lib/site-schema';
 import { defaultContent } from '../src/data/portfolio';
+import { llmsPaths } from '../src/lib/llms';
 import { readPublished } from './content';
+import { llmsDiscoveryLinks } from './llms';
 import type { Store } from './store';
 
 const escape = (value: string) =>
@@ -47,10 +49,13 @@ export function renderMetadata(template: string, content: SiteContent, isPrivate
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')
     .replace(/&/g, '\\u0026');
+  const discovery = isPrivate
+    ? '<meta name="robots" content="noindex, nofollow" />'
+    : `<link rel="describedby" type="text/plain" href="${llmsPaths.index}" title="AI-readable portfolio" /><link rel="alternate" type="text/markdown" href="${llmsPaths.markdown}" title="Portfolio in Markdown" />`;
   result = result.replace(
     '</head>',
     () =>
-      `${isPrivate ? '<meta name="robots" content="noindex, nofollow" />' : ''}<script id="portfolio-content" type="application/json">${bootstrap}</script></head>`,
+      `${discovery}<script id="portfolio-content" type="application/json">${bootstrap}</script></head>`,
   );
   return result;
 }
@@ -67,10 +72,10 @@ export async function servePage(req: IncomingMessage, res: ServerResponse, store
     // Keep the admin sign-in/recovery screen reachable during a storage outage.
     // A public storage failure must not silently resurrect factory content.
     const content = isAdmin ? defaultContent : (await readPublished(store)).content;
+    const isPrivate = isAdmin || url.searchParams.get('preview') === 'draft';
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    return res.end(
-      renderMetadata(template, content, isAdmin || url.searchParams.get('preview') === 'draft'),
-    );
+    if (!isPrivate) res.setHeader('Link', llmsDiscoveryLinks);
+    return res.end(renderMetadata(template, content, isPrivate));
   } catch {
     res.statusCode = 503;
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');

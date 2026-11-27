@@ -1,4 +1,24 @@
-import { profile } from '../data/portfolio';
+import { profile, type Project } from '../data/portfolio';
+
+/** Search the current published project fields, not external links or private CMS records. */
+export function matchesProjectSearch(project: Project, query: string): boolean {
+  const normalize = (value: string) => value.normalize('NFKC').toLowerCase();
+  const terms = normalize(query).trim().split(/\s+/u).filter(Boolean);
+  const text = normalize(
+    [
+      project.title,
+      project.kind,
+      project.category,
+      project.context,
+      project.description,
+      project.problem,
+      project.architecture,
+      project.impact,
+      ...project.tags,
+    ].join(' '),
+  );
+  return terms.every((term) => text.includes(term));
+}
 
 export function createSourceRequestLink(
   projectTitle: string,

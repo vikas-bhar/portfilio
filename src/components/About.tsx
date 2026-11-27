@@ -1,7 +1,8 @@
-import { ArrowUpRight, Code2, Network, ScanLine, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Code2, Network, ScanLine, Sparkles } from 'lucide-react';
 import { useSiteContent } from '../hooks/useSiteContent';
 import Floating3DWrapper from './Floating3DWrapper';
 import TiltCard from './TiltCard';
+import PaperIcon from './PaperIcon';
 
 export default function About() {
   const { content } = useSiteContent();
@@ -31,7 +32,7 @@ export default function About() {
         </Floating3DWrapper>
         <div className="about-grid">
           <div className="about-visual">
-            <div className="about-stat-row">
+            <div className="about-stat-row paper-card">
               <Floating3DWrapper depth={25} tiltIntensity={15} floatAmplitude={5}>
                 <div className="about-stat">
                   <strong>{String(projects.length).padStart(2, '0')}</strong>
@@ -42,7 +43,11 @@ export default function About() {
               <Floating3DWrapper depth={25} tiltIntensity={15} floatAmplitude={5} floatDelay={0.2}>
                 <div className="about-stat">
                   <strong>
-                    0 <span>→</span> 1
+                    0{' '}
+                    <span className="ownership-arrow" role="img" aria-label="to">
+                      <ArrowRight size={30} strokeWidth={1.2} aria-hidden="true" />
+                    </span>{' '}
+                    1
                   </strong>
                   <span className="stat-label">End-to-end ownership</span>
                 </div>
@@ -59,11 +64,9 @@ export default function About() {
                   floating
                   floatDelay={index * 0.3}
                 >
-                  <div className="focus-area">
-                    <span className="focus-icon">
-                      <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
-                    </span>
-                    <div>
+                  <div className="focus-area paper-card">
+                    <PaperIcon icon={Icon} index={index} />
+                    <div className="focus-area-copy">
                       <h3>{title}</h3>
                       <p>{description}</p>
                     </div>
@@ -72,7 +75,7 @@ export default function About() {
               ))}
             </div>
           </div>
-          <div className="about-copy">
+          <div className="about-copy paper-card">
             <Floating3DWrapper depth={24} tiltIntensity={8} floatAmplitude={3} floatDelay={0.2}>
               <h2 id="about-heading">
                 {copy.aboutTitle}

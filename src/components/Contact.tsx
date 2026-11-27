@@ -6,6 +6,7 @@ import { createMailtoLink, type ContactMessage } from '../lib/contact';
 import { useClipboard } from '../hooks/useClipboard';
 import Floating3DWrapper from './Floating3DWrapper';
 import TiltCard from './TiltCard';
+import PaperIcon from './PaperIcon';
 
 const initialMessage: ContactMessage = { firstName: '', lastName: '', email: '', message: '' };
 
@@ -50,7 +51,7 @@ export default function Contact() {
           </p>
         </Floating3DWrapper>
         <div className="contact-grid">
-          <div className="contact-copy">
+          <div className="contact-copy paper-card">
             <Floating3DWrapper depth={20} tiltIntensity={16} floatAmplitude={4}>
               <div className="availability">
                 <span className="status-dot" aria-hidden="true" />
@@ -114,10 +115,10 @@ export default function Contact() {
             perspective={1400}
             floating={false}
           >
-            <div className="contact-form-card">
+            <div className="contact-form-card paper-card">
               <div className="form-heading">
-                <span>Let’s hear it.</span>
-                <Mail size={20} strokeWidth={1.3} aria-hidden="true" />
+                <PaperIcon icon={Mail} index={0} />
+                <h3>Let’s hear it.</h3>
               </div>
               <form
                 onSubmit={handleSubmit}

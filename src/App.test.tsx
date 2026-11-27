@@ -93,6 +93,13 @@ describe('portfolio application', () => {
     );
   });
 
+  it('makes the public AI text discoverable in the footer without adding an Admin link', () => {
+    render(<Footer />);
+    const footer = within(screen.getByRole('contentinfo'));
+    expect(footer.getByRole('link', { name: 'AI text' })).toHaveAttribute('href', '/llms.txt');
+    expect(footer.queryByRole('link', { name: /Admin/ })).not.toBeInTheDocument();
+  });
+
   it('orders the showcase for a quick scan and includes capabilities and milestones', () => {
     render(<App />);
     expect(

@@ -7,7 +7,7 @@ import { defaultContent, projects } from '../data/portfolio';
 import { SiteContext } from '../context/site-context';
 
 const flagships = projects.filter((project) => project.featured);
-describe('compact project collection', () => {
+describe('searchable project archive', () => {
   it('keeps all eleven projects and starts each with a brief summary', () => {
     render(<Projects />);
     expect(screen.getAllByRole('article')).toHaveLength(11);
@@ -110,6 +110,89 @@ describe('compact project collection', () => {
         project.title,
       );
     });
+  });
+
+  it('searches names, technologies and published detail fields regardless of case or spacing', async () => {
+    const user = userEvent.setup();
+    render(<Projects />);
+    const search = screen.getByRole('searchbox', { name: 'Search projects' });
+    await user.type(search, '  rEaCt   native  ');
+    await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(1));
+    expect(screen.getByRole('heading', { name: 'Kisan Sathi' })).toBeInTheDocument();
+    expect(screen.getByRole('status')).toHaveTextContent('1 project');
+    expect(screen.getByRole('button', { name: /^Applied AI/ })).toHaveTextContent('01');
+    expect(screen.getByRole('button', { name: /^Systems/ })).toHaveTextContent('00');
+    await user.clear(search);
+    await user.type(search, 'AEO Supabase');
+    await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(1));
+    expect(screen.getByRole('heading', { name: 'AEO Pulse' })).toBeInTheDocument();
+    expect(document.querySelector('.project-index')).toHaveTextContent('02');
+    await user.clear(search);
+    await user.type(search, 'SEVA2026');
+    await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(1));
+    expect(screen.getByRole('heading', { name: 'Kisan Sathi' })).toBeInTheDocument();
+  });
+
+  it('combines search with category filters and clears the query without changing the category', async () => {
+    const user = userEvent.setup();
+    render(<Projects />);
+    const search = screen.getByRole('searchbox', { name: 'Search projects' });
+    await user.click(screen.getByRole('button', { name: /^Full-stack/ }));
+    await user.type(search, 'Rasa');
+    await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(1));
+    expect(document.querySelector('.project-index')).toHaveTextContent('04');
+    await user.click(screen.getByRole('button', { name: 'Clear project search' }));
+    expect(search).toHaveValue('');
+    expect(search).toHaveFocus();
+    expect(screen.getByRole('button', { name: /^Full-stack/ })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(4));
+    expect(screen.getByRole('status')).toHaveTextContent('4 projects');
+  });
+
+  it('offers a focused reset from an empty search and lets Escape clear the query', async () => {
+    const user = userEvent.setup();
+    render(<Projects />);
+    const search = screen.getByRole('searchbox', { name: 'Search projects' });
+    await user.click(screen.getByRole('button', { name: /^Systems/ }));
+    await user.type(search, 'no-such-project');
+    await waitFor(() => expect(screen.queryAllByRole('article')).toHaveLength(0));
+    expect(screen.getByRole('status')).toHaveTextContent('0 projects');
+    expect(screen.getByRole('heading', { name: 'No matching projects' })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Reset project filters' }));
+    expect(search).toHaveValue('');
+    expect(search).toHaveFocus();
+    expect(screen.getByRole('button', { name: /^All projects/ })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(11));
+    await user.type(search, 'FocusPulse');
+    await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(1));
+    await user.keyboard('{Escape}');
+    expect(search).toHaveValue('');
+    expect(search).toHaveFocus();
+    await waitFor(() => expect(screen.getAllByRole('article')).toHaveLength(11));
+  });
+
+  it('does not surface hidden projects or count them in search results', async () => {
+    const user = userEvent.setup();
+    const content = structuredClone(defaultContent);
+    content.projects[0]!.visible = false;
+    render(
+      <SiteContext.Provider
+        value={{ content, revision: 'test', previewMode: false, loadError: null }}
+      >
+        <Projects />
+      </SiteContext.Provider>,
+    );
+    expect(screen.getAllByRole('article')).toHaveLength(10);
+    await user.type(screen.getByRole('searchbox', { name: 'Search projects' }), 'Kisan');
+    await waitFor(() => expect(screen.queryAllByRole('article')).toHaveLength(0));
+    expect(screen.getByRole('status')).toHaveTextContent('0 projects');
+    expect(screen.getByRole('button', { name: /^Featured/ })).toHaveTextContent('00');
   });
 
   it('honors published project order and visibility', () => {

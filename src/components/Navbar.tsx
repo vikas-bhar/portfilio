@@ -144,7 +144,7 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }: NavbarPro
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
-            className="mobile-nav"
+            className="mobile-nav paper-card"
             id="site-navigation-menu"
             aria-label="Menu navigation"
             initial={reducedMotion ? false : { opacity: 0, height: 0, rotateX: -15 }}

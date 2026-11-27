@@ -1,6 +1,7 @@
 import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import { useSiteContent } from '../hooks/useSiteContent';
 import Floating3DWrapper from './Floating3DWrapper';
+import { llmsPaths } from '../lib/llms';
 
 export default function Footer() {
   const { content } = useSiteContent();
@@ -8,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
-        <div className="footer-top">
+        <div className="footer-top paper-card paper-card-note">
           <Floating3DWrapper
             className="footer-home"
             depth={16}
@@ -44,6 +45,9 @@ export default function Footer() {
             © {new Date().getFullYear()} {profile.name}. Crafted with intention.
           </p>
           <div>
+            <a href={llmsPaths.index} title="Published portfolio information for AI tools">
+              AI text <ArrowUpRight size={12} aria-hidden="true" />
+            </a>
             <a href={profile.github} target="_blank" rel="noopener noreferrer">
               GitHub <ArrowUpRight size={12} aria-hidden="true" />
             </a>

@@ -13,9 +13,9 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { Github, Linkedin } from './SocialIcons';
-import { Fragment } from 'react';
 import { useSiteContent } from '../hooks/useSiteContent';
 import Floating3DWrapper from './Floating3DWrapper';
+import HeroArtwork from './HeroArtwork';
 
 interface HeroProps {
   onOpenResume: () => void;
@@ -24,10 +24,7 @@ interface HeroProps {
 export default function Hero({ onOpenResume }: HeroProps) {
   const { content } = useSiteContent();
   const { profile, copy } = content;
-  const roleLines = profile.role
-    .replace(' & ', ' &\n')
-    .replace(' Product Engineer', '\nProduct Engineer')
-    .split('\n');
+  const [firstName, ...otherNames] = profile.name.split(/\s+/);
   const pathIcons = [ScanLine, Code2, Rocket];
   const projectsVisible = content.sections.some(
     (section) => section.id === 'project' && section.visible,
@@ -58,18 +55,16 @@ export default function Hero({ onOpenResume }: HeroProps) {
             </Floating3DWrapper>
             <Floating3DWrapper depth={30} tiltIntensity={10} floatAmplitude={4} floatDuration={4.5}>
               <h1 id="hero-heading">
-                <span className="hero-name">{profile.name} —</span>{' '}
-                {roleLines.map((line, index) => (
-                  <Fragment key={index}>
-                    {index > 0 && (
-                      <>
-                        {' '}
-                        <br />
-                      </>
-                    )}
-                    {index === roleLines.length - 1 ? <em>{line}</em> : line}
-                  </Fragment>
-                ))}
+                <span className="hero-name">
+                  <span className="hero-name-part">{firstName}</span>
+                  {otherNames.length > 0 && (
+                    <>
+                      {' '}
+                      <span className="hero-name-part">{otherNames.join(' ')}</span>
+                    </>
+                  )}
+                </span>
+                <span className="hero-role"> — {profile.role}</span>
               </h1>
             </Floating3DWrapper>
             <Floating3DWrapper
@@ -148,7 +143,9 @@ export default function Hero({ onOpenResume }: HeroProps) {
             </div>
           </div>
 
-          <details className="hero-build-details">
+          <HeroArtwork />
+
+          <details className="hero-build-details paper-card">
             <summary>
               How I approach a project <ChevronDown size={16} aria-hidden="true" />
             </summary>
@@ -232,7 +229,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                 floatAmplitude={4}
                 floatDelay={index * 0.3}
               >
-                <span className="hero-tech-pill">
+                <span className="hero-tech-pill paper-chip">
                   <Icon size={13} aria-hidden="true" />
                   {text}
                 </span>

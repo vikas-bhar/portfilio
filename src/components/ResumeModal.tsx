@@ -40,7 +40,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   return (
     <dialog
       ref={dialogRef}
-      className="resume-dialog"
+      className="resume-dialog paper-colors"
       aria-labelledby="resume-dialog-title"
       aria-modal="true"
       onKeyDown={(event) => {
@@ -144,7 +144,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           <h4>Technical capabilities</h4>
           <div className="resume-skills">
             {skillGroups.map((group) => (
-              <div key={group.id}>
+              <div key={group.id} className="paper-card paper-card-note">
                 <strong>{group.title}</strong>
                 <p>{group.skills.join(' · ')}</p>
               </div>
@@ -155,7 +155,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           <h4>Projects & selected work</h4>
           <div className="resume-projects">
             {projects.map((project) => (
-              <article key={project.id}>
+              <article key={project.id} className="paper-card paper-card-note">
                 <div>
                   <h5>{project.title}</h5>
                 </div>
@@ -218,7 +218,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           <h4>Experience & milestones</h4>
           <div className="resume-milestones">
             {milestones.map((milestone) => (
-              <article key={milestone.id}>
+              <article key={milestone.id} className="paper-card paper-card-note">
                 <h5>{milestone.title}</h5>
                 <p className="resume-project-context">{milestone.organization}</p>
                 <p>{milestone.description}</p>

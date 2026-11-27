@@ -8,6 +8,7 @@ import { randomSecret } from './auth';
 import { defaultContent } from '../src/data/portfolio';
 import { readPublished } from './content';
 import { renderMetadata, servePage } from './page';
+import { llmsDiscoveryLinks, llmsFormatForPath } from './llms';
 
 interface Options {
   port?: number;
@@ -54,7 +55,7 @@ export async function startContentServer(options: Options = {}) {
   }
   const api = createApiHandler(store, { setupKey: () => setupKey, loginLimit: options.loginLimit });
   app.use((req, res, next) => {
-    if (req.path.startsWith('/api/')) void api(req, res);
+    if (req.path.startsWith('/api/') || llmsFormatForPath(req.path)) void api(req, res);
     else next();
   });
   const pageRedirects: Record<string, string> = {
@@ -119,14 +120,17 @@ export async function startContentServer(options: Options = {}) {
       if (req.method !== 'GET' || extname(req.path) || req.path.startsWith('/@')) return next();
       try {
         const template = await readFile(resolve('index.html'), 'utf8');
-        const content = req.path.startsWith('/admin')
-          ? defaultContent
-          : (await readPublished(store)).content;
+        const isAdmin = req.path.startsWith('/admin');
+        const isPrivate =
+          isAdmin ||
+          new URL(req.originalUrl, 'http://internal').searchParams.get('preview') === 'draft';
+        const content = isAdmin ? defaultContent : (await readPublished(store)).content;
         const html = await vite.transformIndexHtml(
           req.originalUrl,
-          renderMetadata(template, content, req.path.startsWith('/admin')),
+          renderMetadata(template, content, isPrivate),
         );
         res.type('html').setHeader('Cache-Control', 'no-store');
+        if (!isPrivate) res.setHeader('Link', llmsDiscoveryLinks);
         res.end(html);
       } catch {
         res

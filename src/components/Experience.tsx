@@ -2,6 +2,7 @@ import { BriefcaseBusiness, Flag, Users } from 'lucide-react';
 import { useSiteContent } from '../hooks/useSiteContent';
 import Floating3DWrapper from './Floating3DWrapper';
 import TiltCard from './TiltCard';
+import PaperIcon from './PaperIcon';
 
 const icons = [BriefcaseBusiness, Flag, Users];
 
@@ -46,16 +47,19 @@ export default function Experience() {
                 floating
                 floatDelay={index * 0.25}
               >
-                <article className="experience-card" aria-labelledby={`milestone-${milestone.id}`}>
+                <article
+                  className="experience-card paper-card"
+                  aria-labelledby={`milestone-${milestone.id}`}
+                >
                   <div className="experience-card-top">
-                    <Icon size={22} strokeWidth={1.4} aria-hidden="true" />
-                    <span className="eyebrow">{milestone.category}</span>
+                    <PaperIcon icon={Icon} index={index} />
+                    <span className="eyebrow paper-label">{milestone.category}</span>
                   </div>
                   <h3 id={`milestone-${milestone.id}`}>{milestone.title}</h3>
                   <p className="experience-organization">{milestone.organization}</p>
                   <p className="experience-description">{milestone.description}</p>
                   <ul
-                    className="milestone-highlights"
+                    className="milestone-highlights paper-chips"
                     aria-label={`${milestone.title} focus areas`}
                   >
                     {milestone.highlights.map((highlight) => (

@@ -25,18 +25,20 @@ The uploaded portfolio is organized into a runnable React/Vite/TypeScript projec
 
 The original section components remain under `src/components/`: Hero, Navbar, Projects, Skills, About, Experience, Contact, Footer, and ResumeModal. They now consume shared site content rather than static exports.
 
-- `Projects.tsx` manages Featured / All / domain filters and preserved animated grid transitions.
-- `ProjectCard.tsx` renders a brief card and an independent accessible **Show more / Show less** expansion.
+- `Projects.tsx` manages keyword search, Featured / All / domain filters, live result counts, empty-state recovery, and preserved animated grid transitions. Search uses only visible published content.
+- `ProjectCard.tsx` renders a numbered paper project file with a mounted illustration/capture, concise caption, and an independent accessible **Show more / Show less** expansion.
+- `PaperIcon.tsx` supplies decorative, assistive-technology-hidden mounted icon prints for capabilities, About focus areas, milestones, and Contact. Public cards reuse the Projects stationery primitives without replacing their semantic markup, editable data, or original motion wrappers.
 - `ProjectCover.tsx`, `src/lib/project-images.ts`, and `public/projects/*.svg` supply eleven local illustrations, safe owner-configured images, category defaults for new projects, and a missing-image fallback.
 - `ProjectPreview.tsx` still supports genuine UI captures or an explicitly labeled diagram fallback; illustration covers are not passed off as screenshots.
 - `ProjectActions.tsx` distinguishes verified/provided/unavailable demos and public/private/unverified source. Profile links are not disguised as project source.
 - `src/lib/resume.ts` and `resume-html.ts` share runtime text/print output with the API and factory generator.
+- `src/lib/llms.ts` and `server/llms.ts` generate and serve the published `/llms.txt`, `/llms-full.txt`, and `/index.md` resources, with visible-section/project filtering, honest evidence, draft isolation, and GET/HEAD support. Public HTML/HTTP discovery and the footer's AI text link point to them; Vercel rewrites use the same API runtime. See [AI reading resources](AI_READING.md).
 - `scripts/generate-resume.ts` generates factory reference HTML/TXT under `public/resume/`; runtime links use the CMS API.
 - `src/lib/contact.ts` and `projects.ts` create correctly encoded, project/profile-aware email links.
 
 The source still includes the original `Ambient3DBackground`, `CyberMatrixWires`, `Floating3DWrapper`, `TiltCard`, and `WireframeGlobe`, with reduced-motion, touch, WebGL, cleanup, and lifecycle safeguards. The admin animation toggle adds a static option without changing the enabled original scene. Circuit measurements follow filtering, expansion, and section order/visibility changes.
 
-Styles live in `src/styles/`; `editor-integration.css` adds compact-card, draft-preview, and CMS-setting behavior. `simple.css` adds the quieter typography, optional hero detail, compact illustrated grid, and menu-only Admin login access on desktop and mobile without removing the motion system. Admin styles are separately lazy-loaded from `src/admin/admin.css`. Fonts remain self-hosted.
+Styles live in `src/styles/`; `editor-integration.css` adds compact-card, draft-preview, and CMS-setting behavior. `paper.css` owns the shared textured/torn surfaces, ink palette, mounted print/grid/tape, numbered stamps, mustard labels, and dark chips used by Projects and the other public sections/boxes. Its backing-only clipping preserves content and focus outlines. `studio.css` supplies editorial typography, section/card layouts, the textured rusty-gray dark/light wall, responsive navigation, menu-only Admin access, and the matching résumé viewer. `project-archive.css` presents the searchable two-column project archive and independent expansions using those same primitives, with responsive single-column reflow. `HeroArtwork.tsx` is an original decorative notebook illustration; `public/paper-grain.svg` is a small local procedural texture. The optional hero detail and original motion system remain. Admin styles are separately lazy-loaded from `src/admin/admin.css`. DM Sans, Bricolage Grotesque, Fraunces, and the existing Geist fonts are self-hosted through Fontsource; no reference-site artwork, identity, or project content is included. See [UI theme](UI_THEME.md).
 
 ## Content decisions
 
