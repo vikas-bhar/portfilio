@@ -4,8 +4,8 @@
   "description": "Full-stack and applied AI product engineering, native systems, and end-to-end deployment.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#211e1a",
-  "theme_color": "#211e1a",
+  "background_color": "#353332",
+  "theme_color": "#353332",
   "icons": [
     {
       "src": "/favicon.svg",

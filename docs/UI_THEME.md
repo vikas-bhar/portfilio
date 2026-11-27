@@ -1,6 +1,6 @@
 # Editorial studio UI theme
 
-The public portfolio adopts the warm editorial / creative-studio direction of the [supplied UI reference](https://enosh-portfolio-six.vercel.app/creative-work): charcoal, parchment, mustard details, expressive headings, understated category filters, and artwork-led project captions.
+The public portfolio adopts the warm editorial / creative-studio direction of the [supplied UI reference](https://enosh-portfolio-six.vercel.app/creative-work), customized with rusty-gray walls, cream parchment, mustard details, expressive headings, understated category filters, and artwork-led project captions.
 
 This is a **presentation change**, not a content import or a deployment/domain change.
 
@@ -28,7 +28,7 @@ The Projects design is not an isolated theme. `paper-card`, `paper-mount`, `pape
 - Contact has matching paper invitation and form cards. Labels, validation, copy-email feedback, and the honest email-draft handoff remain functional.
 - The optional hero build path, footer strip, navigation disclosure, project empty state, and résumé cards use the same stationery. The native résumé dialog keeps its own scrolling and keyboard focus behavior.
 
-Like the Projects archive, paper surfaces deliberately stay cream with dark ink in **both** themes; the surrounding canvas and browser chrome switch between charcoal and parchment. Responsive layouts preserve the card treatment instead of removing borders/backgrounds on mobile. All text still comes from the same content provider, including edited/reordered/additional rows. The private Admin workspace is not restyled.
+Like the Projects archive, paper surfaces deliberately stay cream with dark ink in **both** themes. The surrounding wall and browser chrome use deep **rusty gray (`#353332`)** in dark mode and light weathered gray (`#e3dfd9`) in light mode. Local grain and subtle copper-rust/shade gradients add a matte wall finish; the washes fade to transparent at their tile edges, repeat without hard seams, and do not animate or tint the paper cards. Secondary wall text stays contrast-aware, and the initial HTML theme color, saved-theme toggle, and web app manifest match the wall palette. Responsive layouts preserve the card treatment instead of removing borders/backgrounds on mobile. All text still comes from the same content provider, including edited/reordered/additional rows. The private Admin workspace is not restyled.
 
 ## Preserved behavior
 

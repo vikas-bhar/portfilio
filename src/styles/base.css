@@ -9,23 +9,25 @@
     'Segoe UI',
     sans-serif;
   color: #f2e3c7;
-  background: #211e1a;
+  background: #353332;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --bg: #211e1a;
-  --surface: #2b251f;
-  --surface-hover: #372e25;
-  --section-bg: #27211c;
+  --bg: #353332;
+  --surface: #3c3937;
+  --surface-hover: #48413c;
+  --section-bg: #302e2d;
   --text: #f2e3c7;
   --muted: #c5b49d;
-  --faint: #ae9c84;
-  --line: #514638;
-  --line-strong: #7b684e;
+  --faint: #bdad98;
+  --line: #625750;
+  --line-strong: #8a776a;
   --accent: var(--site-accent-dark, #e2ac3e);
   --button-bg: #e2ac3e;
   --button-text: #251c11;
-  --header-bg: rgb(33 30 26 / 94%);
+  --header-bg: rgb(53 51 50 / 94%);
+  --wall-rust: #95674f1f;
+  --wall-shade: #17212626;
   --body: 'DM Sans Variable', Arial, sans-serif;
   --heading: 'Bricolage Grotesque Variable', Arial, sans-serif;
   --editorial: 'Fraunces Variable', Georgia, serif;
@@ -41,20 +43,22 @@
 
 :root[data-theme='light'] {
   color: #30251b;
-  background: #f2e7d4;
-  --bg: #f2e7d4;
-  --surface: #eaddc5;
-  --surface-hover: #e1cfaf;
-  --section-bg: #ecdfc8;
+  background: #e3dfd9;
+  --bg: #e3dfd9;
+  --surface: #d8d1c8;
+  --surface-hover: #cdbfb0;
+  --section-bg: #dcd6ce;
   --text: #30251b;
   --muted: #685440;
-  --faint: #725e48;
-  --line: #cbb797;
-  --line-strong: #a88b65;
+  --faint: #685440;
+  --line: #bfb3a5;
+  --line-strong: #95816e;
   --accent: var(--site-accent-light, #805224);
   --button-bg: #30251b;
   --button-text: #f4e8d0;
-  --header-bg: rgb(242 231 212 / 94%);
+  --header-bg: rgb(227 223 217 / 94%);
+  --wall-rust: #95674f0d;
+  --wall-shade: #ffffff1a;
   color-scheme: light;
 }
 

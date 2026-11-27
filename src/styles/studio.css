@@ -5,16 +5,20 @@
  */
 .site-shell {
   background-color: var(--bg);
+  /* A weathered rusty-gray wall behind the stationery, not a tint on the cards.
+   * Local grain and low-opacity rust/shade washes stay static and repeat down the page. */
   background-image:
-    url('/paper-grain.svg'),
-    radial-gradient(
-      ellipse at 52% 0,
-      color-mix(in srgb, var(--accent) 7%, transparent),
-      transparent 750px
-    );
+    url('/paper-grain.svg'), radial-gradient(ellipse closest-side, var(--wall-rust), transparent),
+    radial-gradient(ellipse closest-side, var(--wall-shade), transparent);
   background-size:
     180px 180px,
-    auto;
+    1100px 1250px,
+    1450px 1650px;
+  background-position:
+    0 0,
+    -220px -280px,
+    480px 420px;
+  background-repeat: repeat;
 }
 .site-shell .container {
   width: calc(100% - 96px);

@@ -68,18 +68,78 @@ test('reflows the project archive and paper spreads without clipping from 320px 
   }
 });
 
-test('keeps warm light/dark browser chrome and the saved theme in sync', async ({ page }) => {
-  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#211e1a');
+test('keeps rusty-gray light/dark browser chrome and the saved theme in sync', async ({ page }) => {
+  await expect(page.locator('.site-shell')).toHaveCSS('background-color', 'rgb(53, 51, 50)');
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#353332');
   await page.getByRole('button', { name: 'Switch to light theme' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
-  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#f2e7d4');
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#e3dfd9');
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await expect(page.locator('.site-shell')).toHaveCSS('background-color', 'rgb(227, 223, 217)');
+  await expect(page.locator('.site-header')).toHaveCSS(
+    'background-color',
+    'rgba(227, 223, 217, 0.94)',
+  );
   await expect(page.locator('.site-shell')).toHaveCSS('color', 'rgb(48, 37, 27)');
   await page.getByRole('button', { name: 'Switch to dark theme' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#211e1a');
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#353332');
   // The effect updates the attribute before the browser finishes inherited-color paint.
   await expect(page.locator('.site-shell')).toHaveCSS('color', 'rgb(242, 227, 199)');
+  await expect(page.locator('.site-shell')).toHaveCSS('background-color', 'rgb(53, 51, 50)');
+  await expect(page.locator('.site-header')).toHaveCSS(
+    'background-color',
+    'rgba(53, 51, 50, 0.94)',
+  );
   await expect(page.locator('.hero-role')).toHaveCSS('color', 'rgb(242, 227, 199)');
+});
+
+test('keeps the weathered rusty-gray wall separate from paper cards and the private workspace', async ({
+  page,
+  request,
+}) => {
+  const paper = () =>
+    page
+      .locator('.project-file')
+      .first()
+      .evaluate((element) => ({
+        stock: getComputedStyle(element).getPropertyValue('--paper').trim(),
+        backing: getComputedStyle(element, '::before').backgroundImage,
+        ink: getComputedStyle(element).color,
+      }));
+  const originalPaper = await paper();
+  expect(originalPaper.stock).toBe('#eadabd');
+  expect(originalPaper.ink).toBe('rgb(48, 37, 27)');
+  for (const theme of ['dark', 'light']) {
+    await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+    const wall = await page.locator('.site-shell').evaluate((element) => ({
+      texture: getComputedStyle(element).backgroundImage,
+      repeat: getComputedStyle(element).backgroundRepeat,
+      animation: getComputedStyle(element).animationName,
+    }));
+    expect(wall.texture).toContain('/paper-grain.svg');
+    expect(wall.texture).toContain('closest-side');
+    expect(wall.texture).toContain('rgba(149, 103, 79,');
+    expect(wall.repeat).toBe('repeat, repeat, repeat');
+    expect(wall.animation).toBe('none');
+    expect(await paper()).toEqual(originalPaper);
+    if (theme === 'dark') await page.getByRole('button', { name: 'Switch to light theme' }).click();
+  }
+  const manifest = await request.get('/site.webmanifest');
+  expect(manifest.ok()).toBe(true);
+  expect(await manifest.json()).toMatchObject({
+    background_color: '#353332',
+    theme_color: '#353332',
+  });
+  await page.goto('/admin');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+  await expect(page.locator('.admin-app')).toHaveCSS('background-color', 'rgb(13, 16, 19)');
+  // The existing auth screen has its own green-tinted gradient, not the public wall texture.
+  const adminBackground = await page
+    .locator('.admin-app')
+    .evaluate((element) => getComputedStyle(element).backgroundImage);
+  expect(adminBackground).not.toContain('/paper-grain.svg');
+  expect(adminBackground).not.toContain('rgba(149, 103, 79,');
+  await expect(page.locator('.site-shell')).toHaveCount(0);
 });
