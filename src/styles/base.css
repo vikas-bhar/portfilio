@@ -67,7 +67,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 80px;
 }
 body {
   margin: 0;

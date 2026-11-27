@@ -68,6 +68,69 @@ test('reflows the project archive and paper spreads without clipping from 320px 
   }
 });
 
+test('keeps page headings and the header compact without shrinking body copy or controls', async ({
+  page,
+}) => {
+  for (const theme of ['dark', 'light']) {
+    await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+    for (const width of [320, 390, 767, 768, 960, 1024, 1199, 1200, 1440, 1920]) {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.evaluate(
+        () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+      );
+      const layout = await page.evaluate(() => {
+        const header = document.querySelector('.site-header')!.getBoundingClientRect();
+        return {
+          headerHeight: header.height,
+          heroSize: parseFloat(getComputedStyle(document.querySelector('.hero h1')!).fontSize),
+          names: [...document.querySelectorAll('.hero-name-part')].map((element) => ({
+            size: parseFloat(getComputedStyle(element).fontSize),
+            left: element.getBoundingClientRect().left,
+            right: element.getBoundingClientRect().right,
+          })),
+          headings: [...document.querySelectorAll('.section h2')].map((element) =>
+            parseFloat(getComputedStyle(element).fontSize),
+          ),
+          bodySize: getComputedStyle(document.querySelector('.hero-description')!).fontSize,
+          scrollPadding: parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop),
+          controls: [...document.querySelectorAll('.site-header .icon-button')].map((element) => {
+            const rect = element.getBoundingClientRect();
+            return {
+              width: rect.width,
+              height: rect.height,
+              top: rect.top - header.top,
+              bottom: rect.bottom - header.top,
+            };
+          }),
+        };
+      });
+      const mobile = width <= 767;
+      expect(layout.headerHeight).toBe(mobile ? 64 : 70);
+      expect(layout.heroSize).toBeGreaterThanOrEqual(42);
+      expect(layout.heroSize).toBeLessThanOrEqual(mobile ? 80 : 88);
+      expect(layout.names[0]!.size).toBeCloseTo(layout.heroSize, 2);
+      expect(layout.names[1]!.size).toBeCloseTo(layout.heroSize * 0.92, 2);
+      for (const name of layout.names) {
+        expect(name.left).toBeGreaterThanOrEqual(0);
+        expect(name.right).toBeLessThanOrEqual(width);
+      }
+      for (const size of layout.headings) {
+        expect(size).toBeGreaterThanOrEqual(28);
+        expect(size).toBeLessThanOrEqual(mobile ? 42 : 56);
+      }
+      expect(layout.bodySize).toBe('14px');
+      expect(layout.scrollPadding).toBeGreaterThanOrEqual(layout.headerHeight + 8);
+      for (const control of layout.controls) {
+        expect(control.width).toBeGreaterThanOrEqual(40);
+        expect(control.height).toBeGreaterThanOrEqual(40);
+        expect(control.top).toBeGreaterThanOrEqual(0);
+        expect(control.bottom).toBeLessThanOrEqual(layout.headerHeight);
+      }
+    }
+    if (theme === 'dark') await page.getByRole('button', { name: 'Switch to light theme' }).click();
+  }
+});
+
 test('keeps rusty-gray light/dark browser chrome and the saved theme in sync', async ({ page }) => {
   await expect(page.locator('.site-shell')).toHaveCSS('background-color', 'rgb(53, 51, 50)');
   await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', '#353332');

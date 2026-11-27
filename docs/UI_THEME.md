@@ -30,6 +30,10 @@ The Projects design is not an isolated theme. `paper-card`, `paper-mount`, `pape
 
 Like the Projects archive, paper surfaces deliberately stay cream with dark ink in **both** themes. The surrounding wall and browser chrome use deep **rusty gray (`#353332`)** in dark mode and light weathered gray (`#e3dfd9`) in light mode. Local grain and subtle copper-rust/shade gradients add a matte wall finish; the washes fade to transparent at their tile edges, repeat without hard seams, and do not animate or tint the paper cards. Secondary wall text stays contrast-aware, and the initial HTML theme color, saved-theme toggle, and web app manifest match the wall palette. Responsive layouts preserve the card treatment instead of removing borders/backgrounds on mobile. All text still comes from the same content provider, including edited/reordered/additional rows. The private Admin workspace is not restyled.
 
+## Compact headings and header
+
+The cut-paper hero name and main section headings use a smaller responsive scale (roughly 20% below the original studio sizes), with tighter heading/intro spacing and proportionate tracking, underlines, and contact decoration. Hero nameplates share a viewport-size token so both lines resize together. The top navigation is 70px high on desktop and 64px on mobile; its theme/menu controls remain at least 40px, and body copy keeps its existing readable size. Anchor clearance and menu height follow the shorter header. This does not shrink the paper cards, restyle Admin, or change published content.
+
 ## Preserved behavior
 
 All eleven factory projects and four flagships, their order/visibility, evidence labels, illustrations and genuine-capture support are unchanged. No images or project descriptions were taken from the reference. No developer portrait was restored.
@@ -46,4 +50,4 @@ npm run build
 npm run test:e2e
 ```
 
-The browser suite checks desktop/mobile layouts, navigation, keyboard interactions, project expansion, published content, theme persistence, motion fallbacks, contact/résumé behavior, and axe accessibility in both palettes. The `studio-theme` checks cover editorial typography and overall reflow. `paper-sections` additionally verifies shared card/print/label/chip styles in both themes, expanded-card content bounds from 320px through 1920px, accessible optional build-path details, matching menu/résumé cards, and separation from the private editor. Component tests preserve edited/reordered/additional content and decorative-only icon semantics.
+The browser suite checks desktop/mobile layouts, navigation, keyboard interactions, project expansion, published content, theme persistence, motion fallbacks, contact/résumé behavior, and axe accessibility in both palettes. The `studio-theme` checks cover editorial typography, compact heading/header sizes in both themes, synchronized nameplates on resize, unchanged body text and navigation targets, and overall reflow. `paper-sections` additionally verifies shared card/print/label/chip styles in both themes, expanded-card content bounds from 320px through 1920px, accessible optional build-path details, matching menu/résumé cards, and separation from the private editor. Component tests preserve edited/reordered/additional content and decorative-only icon semantics.
