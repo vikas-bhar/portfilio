@@ -25,8 +25,8 @@ The uploaded portfolio is organized into a runnable React/Vite/TypeScript projec
 
 The original section components remain under `src/components/`: Hero, Navbar, Projects, Skills, About, Experience, Contact, Footer, and ResumeModal. They now consume shared site content rather than static exports.
 
-- `Projects.tsx` manages Featured / All / domain filters and preserved animated grid transitions.
-- `ProjectCard.tsx` renders a brief card and an independent accessible **Show more / Show less** expansion.
+- `Projects.tsx` manages keyword search, Featured / All / domain filters, live result counts, empty-state recovery, and preserved animated grid transitions. Search uses only visible published content.
+- `ProjectCard.tsx` renders a numbered paper project file with a mounted illustration/capture, concise caption, and an independent accessible **Show more / Show less** expansion.
 - `ProjectCover.tsx`, `src/lib/project-images.ts`, and `public/projects/*.svg` supply eleven local illustrations, safe owner-configured images, category defaults for new projects, and a missing-image fallback.
 - `ProjectPreview.tsx` still supports genuine UI captures or an explicitly labeled diagram fallback; illustration covers are not passed off as screenshots.
 - `ProjectActions.tsx` distinguishes verified/provided/unavailable demos and public/private/unverified source. Profile links are not disguised as project source.
@@ -36,7 +36,7 @@ The original section components remain under `src/components/`: Hero, Navbar, Pr
 
 The source still includes the original `Ambient3DBackground`, `CyberMatrixWires`, `Floating3DWrapper`, `TiltCard`, and `WireframeGlobe`, with reduced-motion, touch, WebGL, cleanup, and lifecycle safeguards. The admin animation toggle adds a static option without changing the enabled original scene. Circuit measurements follow filtering, expansion, and section order/visibility changes.
 
-Styles live in `src/styles/`; `editor-integration.css` adds compact-card, draft-preview, and CMS-setting behavior. `simple.css` adds the quieter typography, optional hero detail, compact illustrated grid, and menu-only Admin login access on desktop and mobile without removing the motion system. Admin styles are separately lazy-loaded from `src/admin/admin.css`. Fonts remain self-hosted.
+Styles live in `src/styles/`; `editor-integration.css` adds compact-card, draft-preview, and CMS-setting behavior. `studio.css` supplies the warm editorial UI theme: parchment nameplates and paper spreads, charcoal/mustard colors, responsive navigation, and menu-only Admin access. `project-archive.css` presents a searchable two-column archive with numbered torn-paper project files, mounted artwork, technology chips, category filters, and responsive single-column reflow. `HeroArtwork.tsx` is an original decorative notebook illustration; `public/paper-grain.svg` is a small local procedural texture. The optional hero detail and original motion system remain. Admin styles are separately lazy-loaded from `src/admin/admin.css`. DM Sans, Bricolage Grotesque, Fraunces, and the existing Geist fonts are self-hosted through Fontsource; no reference-site artwork, identity, or project content is included. See [UI theme](UI_THEME.md).
 
 ## Content decisions
 

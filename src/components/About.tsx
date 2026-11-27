@@ -1,4 +1,4 @@
-import { ArrowUpRight, Code2, Network, ScanLine, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Code2, Network, ScanLine, Sparkles } from 'lucide-react';
 import { useSiteContent } from '../hooks/useSiteContent';
 import Floating3DWrapper from './Floating3DWrapper';
 import TiltCard from './TiltCard';
@@ -42,7 +42,11 @@ export default function About() {
               <Floating3DWrapper depth={25} tiltIntensity={15} floatAmplitude={5} floatDelay={0.2}>
                 <div className="about-stat">
                   <strong>
-                    0 <span>→</span> 1
+                    0{' '}
+                    <span className="ownership-arrow" role="img" aria-label="to">
+                      <ArrowRight size={30} strokeWidth={1.2} aria-hidden="true" />
+                    </span>{' '}
+                    1
                   </strong>
                   <span className="stat-label">End-to-end ownership</span>
                 </div>
