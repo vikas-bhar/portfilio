@@ -16,15 +16,15 @@ export default function ProjectCard({ project, index }: { project: Project; inde
 
   return (
     <article
-      className={`project-card compact-project-card project-file ${expanded ? 'is-expanded' : ''}`}
+      className={`project-card compact-project-card paper-card project-file ${expanded ? 'is-expanded' : ''}`}
       aria-labelledby={`${project.id}-title`}
     >
       <div className="project-file-summary">
-        <div className="project-file-visual">
-          <span className="project-index mono" aria-hidden="true">
+        <div className="project-file-visual paper-mount">
+          <span className="project-index paper-index mono" aria-hidden="true">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <div className="project-artwork">
+          <div className="project-artwork paper-print">
             {project.screenshot ? (
               <ProjectPreview project={project} index={index} />
             ) : (
@@ -34,7 +34,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         </div>
         <div className="project-card-content">
           <div className="project-caption-top">
-            <p className="project-kind">{project.kind}</p>
+            <p className="project-kind paper-label">{project.kind}</p>
             {project.featured && (
               <Star size={14} className="featured-star" aria-label="Featured project" />
             )}
@@ -45,7 +45,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           <p className="project-description">
             {expanded ? project.description : projectExcerpt(project.description)}
           </p>
-          <ul className="tech-tags" aria-label={`${project.title} technology stack`}>
+          <ul className="tech-tags paper-chips" aria-label={`${project.title} technology stack`}>
             {(expanded ? project.tags : project.tags.slice(0, 4)).map((tag) => (
               <li key={tag}>{tag}</li>
             ))}

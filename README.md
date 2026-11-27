@@ -4,7 +4,7 @@ A responsive **Full-Stack & Applied AI Product Engineer** portfolio built with R
 
 - **11 projects:** four priority flagships plus seven restored earlier projects. All are visible by default; the Featured filter selects the four flagships.
 - **Simple, illustrated cards:** each project has a lightweight local image, a brief description, and an individual, accessible **Show more / Show less** for the full story and evidence notes. The images are labeled illustrations, not working-product screenshots.
-- **Quieter layout:** a single-column introduction, optional How I approach a project details, consistent typography, and a compact responsive project grid. Original motion is retained with a subtler visual treatment.
+- **Consistent editorial UI:** Projects, capabilities, About, milestones, Contact, the menu, footer, and résumé viewer share parchment cards, mounted illustrations/icons, mustard labels, and dark chips. The cut-paper introduction, optional How I approach a project details, responsive searchable archive, and original motion remain.
 - **Whole-site administration:** projects, ordering/visibility, profile/contact links, hero, capabilities, About, experience, section order/copy, theme accents, motion, metadata, and résumé settings.
 - **Save draft → Preview → Publish:** private server-side drafts, authenticated previews, shared published content, and optimistic concurrency protection.
 - **AI-readable portfolio:** `/llms.txt`, `/llms-full.txt`, and `/index.md` provide a concise index and complete published content without JavaScript, kept current through the existing publishing workflow.

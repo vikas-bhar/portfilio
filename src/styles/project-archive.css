@@ -17,15 +17,6 @@
   font-size: clamp(42px, 5.5vw, 74px);
   overflow-wrap: anywhere;
 }
-.site-shell .project-archive-heading h2::after {
-  content: '';
-  display: block;
-  width: 100px;
-  height: 4px;
-  margin-top: 20px;
-  background: var(--gold);
-  transform: rotate(-3deg);
-}
 .site-shell .project-archive-heading .section-description {
   max-width: 600px;
   margin-top: 18px;
@@ -144,79 +135,11 @@
   align-items: start;
   padding: 5px 3px 12px;
 }
+/* Shared paper, mounted print, category labels and chips live in paper.css. */
 .site-shell .project-file {
-  --bg: var(--paper);
-  --text: var(--paper-ink);
-  --muted: var(--paper-muted);
-  --faint: #725b41;
-  --line: var(--paper-line);
-  --line-strong: #a68b66;
-  --accent: var(--site-accent-light, #805224);
-  --surface: #efdfc2;
-  --surface-hover: #decaab;
-  --section-bg: #dfcdad;
-  position: relative;
-  isolation: isolate;
   height: auto;
   padding: 25px 23px 22px;
-  border: 0;
-  border-radius: 0;
   overflow: visible;
-  color: var(--text);
-  background: transparent;
-  filter: drop-shadow(3px 6px 4px #100d0945);
-  color-scheme: light;
-}
-.project-file::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background:
-    url('/paper-grain.svg'), radial-gradient(ellipse at 2% 8%, #b68d5633, transparent 55%),
-    linear-gradient(110deg, var(--paper), var(--paper-light) 68%, #e4cdab);
-  clip-path: polygon(
-    0 2%,
-    6% 1%,
-    12% 2%,
-    19% 0,
-    27% 1.5%,
-    36% 0.5%,
-    44% 2%,
-    54% 0,
-    63% 1.5%,
-    72% 0.5%,
-    82% 2%,
-    91% 0.5%,
-    98% 2%,
-    99% 8%,
-    98.7% 20%,
-    100% 33%,
-    99% 47%,
-    100% 61%,
-    98.8% 76%,
-    100% 90%,
-    98% 98%,
-    91% 99%,
-    83% 98%,
-    75% 100%,
-    67% 98.5%,
-    58% 100%,
-    48% 98%,
-    39% 99.5%,
-    30% 98%,
-    20% 100%,
-    12% 98.5%,
-    4% 100%,
-    1% 97%,
-    0 87%,
-    1% 72%,
-    0 59%,
-    1% 45%,
-    0 30%,
-    1% 16%
-  );
-  pointer-events: none;
 }
 .project-file-summary {
   display: grid;
@@ -224,48 +147,8 @@
   align-items: center;
   gap: 25px;
 }
-.project-file-visual {
-  position: relative;
-  isolation: isolate;
-  min-width: 0;
-  margin-block: 8px;
-}
-.project-file-visual::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: -7% 4% -8% -2%;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 13px, #68573c30 13px 14px),
-    repeating-linear-gradient(90deg, transparent 0 13px, #68573c30 13px 14px),
-    #dcc6a2 url('/paper-grain.svg');
-  transform: rotate(7deg);
-  box-shadow: 1px 2px 3px #73583040;
-}
-.project-artwork {
-  position: relative;
-  padding: 7px 7px 16px;
-  background: var(--paper-light) url('/paper-grain.svg');
-  box-shadow: 3px 5px 8px #34220d55;
-  transform: rotate(-5deg);
-  transition:
-    transform 240ms ease,
-    box-shadow 240ms ease;
-}
 .project-grid > div:nth-child(even) .project-artwork {
   transform: rotate(4deg);
-}
-.project-artwork::after {
-  content: '';
-  position: absolute;
-  z-index: 1;
-  width: 45%;
-  height: 17px;
-  top: -8px;
-  left: 30%;
-  background: #c991388f url('/paper-grain.svg');
-  transform: rotate(-8deg);
-  pointer-events: none;
 }
 .project-grid > div:nth-child(3n) .project-artwork::after {
   width: 13px;
@@ -330,17 +213,7 @@
   font-size: 9px;
 }
 .site-shell .project-index {
-  position: absolute;
-  z-index: 2;
-  left: -8px;
-  top: -10px;
   padding: 4px 7px;
-  background: var(--gold) url('/paper-grain.svg');
-  color: var(--paper-ink);
-  font-family: var(--editorial);
-  font-size: 18px;
-  font-weight: 650;
-  transform: rotate(-6deg);
 }
 .site-shell .project-file .project-card-content {
   min-width: 0;
@@ -354,16 +227,7 @@
   margin-bottom: 10px;
 }
 .site-shell .project-kind {
-  width: fit-content;
   margin: 0;
-  padding: 3px 6px;
-  background: #e5b64f url('/paper-grain.svg');
-  color: #352313;
-  font-size: 10px;
-  font-weight: 650;
-  line-height: 1.5;
-  letter-spacing: 0;
-  text-transform: none;
 }
 .site-shell .project-file .project-title-row h3 {
   font-family: var(--heading);
@@ -387,17 +251,9 @@
   gap: 5px;
 }
 .site-shell .project-file .tech-tags > li {
-  max-width: 100%;
   padding: 4px 6px;
-  border: 0;
-  border-radius: 2px;
-  background: #3d3024;
-  color: #f9ecd2;
-  font-family: var(--body);
   font-size: 9px;
-  font-weight: 550;
   line-height: 1.4;
-  overflow-wrap: anywhere;
 }
 .site-shell .project-read-more {
   align-self: stretch;
@@ -494,7 +350,6 @@
   justify-items: center;
   gap: 16px;
   padding: 45px 20px;
-  border: 1px dashed var(--line-strong);
 }
 .project-empty > svg {
   color: var(--accent);

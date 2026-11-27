@@ -157,7 +157,7 @@ export default function Projects() {
           </AnimatePresence>
         </motion.div>
         {!visibleProjects.length && (
-          <div className="project-empty">
+          <div className="project-empty paper-card">
             <SearchX size={28} strokeWidth={1.4} aria-hidden="true" />
             <h3>No matching projects</h3>
             <p>Try a different keyword or category, or return to the complete collection.</p>

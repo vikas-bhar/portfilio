@@ -145,7 +145,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
 
           <HeroArtwork />
 
-          <details className="hero-build-details">
+          <details className="hero-build-details paper-card">
             <summary>
               How I approach a project <ChevronDown size={16} aria-hidden="true" />
             </summary>
@@ -229,7 +229,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                 floatAmplitude={4}
                 floatDelay={index * 0.3}
               >
-                <span className="hero-tech-pill">
+                <span className="hero-tech-pill paper-chip">
                   <Icon size={13} aria-hidden="true" />
                   {text}
                 </span>
