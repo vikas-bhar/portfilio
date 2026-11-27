@@ -4,6 +4,7 @@ import { siteContentSchema, type DraftRecord } from '../src/lib/site-schema';
 import { createResumeText, resumeFileStem } from '../src/lib/resume';
 import { createResumeHtml } from '../src/lib/resume-html';
 import { readPublished, publish, writeDraft } from './content';
+import { llmsFormatForPath, serveLlms } from './llms';
 import { ConflictError, StorageError, type Store } from './store';
 import {
   clearSession,
@@ -95,6 +96,8 @@ export function createApiHandler(store: Store, options: Options) {
     try {
       const path = new URL(req.url ?? '/', 'http://internal').pathname.replace(/\/$/, '');
       const method = req.method ?? 'GET';
+      const llmsFormat = llmsFormatForPath(path);
+      if (llmsFormat) return serveLlms(req, res, store, llmsFormat);
       if (method === 'GET' && path === '/api/site')
         return json(res, 200, await readPublished(store));
       if (method === 'GET' && (path === '/api/resume/html' || path === '/api/resume/text')) {

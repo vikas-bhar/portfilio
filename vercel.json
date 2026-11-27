@@ -39,6 +39,18 @@
   ],
   "rewrites": [
     {
+      "source": "/llms.txt",
+      "destination": "/api/llms"
+    },
+    {
+      "source": "/llms-full.txt",
+      "destination": "/api/llms/full"
+    },
+    {
+      "source": "/index.md",
+      "destination": "/api/llms/markdown"
+    },
+    {
       "source": "/",
       "destination": "/api/page"
     },

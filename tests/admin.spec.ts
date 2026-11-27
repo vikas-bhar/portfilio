@@ -211,6 +211,10 @@ test('supports protected whole-site editing, private preview, conflict recovery,
   await preview.close();
   const stillPublic = (await (await context.request.get('/api/site')).json()) as ContentRecord;
   expect(stillPublic.content.profile.name).toBe(defaultContent.profile.name);
+  const publicAiText = await (await context.request.get('/llms-full.txt?preview=draft')).text();
+  expect(publicAiText).toMatch(/^# Vikas Bhardwaj\n/);
+  expect(publicAiText).not.toContain('Preview Builder');
+  expect(publicAiText).not.toContain(newTitle);
 
   await page.getByRole('button', { name: 'Publish', exact: true }).click();
   const confirm = page.getByRole('dialog', { name: 'Ready to publish?' });
@@ -246,6 +250,13 @@ test('supports protected whole-site editing, private preview, conflict recovery,
     ).text();
     expect(resume).toContain('PREVIEW BUILDER');
     expect(resume).toContain(newTitle);
+    const aiText = await (await visitor.request.get('http://127.0.0.1:3100/llms-full.txt')).text();
+    expect(aiText).toMatch(/^# Preview Builder\n/);
+    expect(aiText).toContain(newTitle);
+    expect(aiText).toContain('builder-test@example.com');
+    expect(aiText).not.toContain('### Kisan Sathi');
+    expect(aiText).not.toContain('## Experience and milestones');
+    expect(aiText).not.toMatch(/passwordHash|sessionSecret|csrfToken/);
     expect((await visitor.request.get('http://127.0.0.1:3100/api/admin/draft')).status()).toBe(401);
   } finally {
     await visitor.close();

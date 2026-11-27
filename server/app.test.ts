@@ -73,6 +73,44 @@ describe('complete production HTTP host', () => {
       storage: 'unconfigured',
     });
   });
+  it('serves the conventional AI text paths before static-file and SPA fallbacks', async () => {
+    const base = await start(store());
+    for (const [path, type] of [
+      ['/llms.txt', 'text/plain'],
+      ['/llms-full.txt', 'text/plain'],
+      ['/index.md', 'text/markdown'],
+    ]) {
+      const response = await fetch(base + path + '?preview=draft');
+      expect(response.status).toBe(200);
+      expect(response.headers.get('content-type')).toBe(`${type}; charset=utf-8`);
+      expect(response.headers.get('cache-control')).toContain('no-store');
+      const body = await response.text();
+      expect(body).toMatch(/^# Vikas Bhardwaj\n/);
+      expect(body).not.toContain('<html');
+      expect(body).not.toContain('portfolio-content');
+      expect(body).not.toContain('/api/admin/');
+      const head = await fetch(base + path, { method: 'HEAD' });
+      expect(head.status).toBe(200);
+      expect(await head.text()).toBe('');
+      const write = await fetch(base + path, { method: 'POST' });
+      expect(write.status).toBe(405);
+      expect(write.headers.get('allow')).toBe('GET, HEAD');
+    }
+  });
+  it('advertises AI text in the actual public HTML and headers, but not on private pages', async () => {
+    const base = await start(store());
+    const response = await fetch(base + '/');
+    expect(response.headers.get('link')).toContain('</llms.txt>; rel="describedby"');
+    expect(response.headers.get('link')).toContain('</index.md>; rel="alternate"');
+    const html = await response.text();
+    expect(html).toContain('rel="describedby" type="text/plain" href="/llms.txt"');
+    expect(html).toContain('rel="alternate" type="text/markdown" href="/index.md"');
+    for (const path of ['/admin', '/?preview=draft']) {
+      const privatePage = await fetch(base + path);
+      expect(privatePage.headers.get('link')).toBeNull();
+      expect(await privatePage.text()).not.toContain('href="/llms.txt"');
+    }
+  });
   it('rejects private and encoded dot paths without serving a setup key or SPA fallback', async () => {
     const base = await start(store());
     for (const path of [

@@ -7,6 +7,7 @@ A responsive **Full-Stack & Applied AI Product Engineer** portfolio built with R
 - **Quieter layout:** a single-column introduction, optional How I approach a project details, consistent typography, and a compact responsive project grid. Original motion is retained with a subtler visual treatment.
 - **Whole-site administration:** projects, ordering/visibility, profile/contact links, hero, capabilities, About, experience, section order/copy, theme accents, motion, metadata, and résumé settings.
 - **Save draft → Preview → Publish:** private server-side drafts, authenticated previews, shared published content, and optimistic concurrency protection.
+- **AI-readable portfolio:** `/llms.txt`, `/llms-full.txt`, and `/index.md` provide a concise index and complete published content without JavaScript, kept current through the existing publishing workflow.
 - **Original moving elements preserved. Developer portraits remain deleted.**
 
 ## Run locally
@@ -67,6 +68,14 @@ Visibility controls are presentation settings, **not secrecy controls**. A hidde
 `src/data/portfolio.ts` defines the validated, version-controlled **factory** portfolio. Once published, shared storage is the source of truth. Rebuilding/redeploying does not overwrite stored publications. Use the editor to change the live site or explicitly restore factory content into a draft.
 
 `src/lib/site-schema.ts` validates both server writes and client reads: bounded content, unique IDs, safe HTTPS links, actual owner/repository GitHub URLs, real calendar dates, fixed section IDs, and accessible theme-accent contrast. React renders owner copy as text; printable HTML, server metadata, and bootstrap JSON are escaped.
+
+## AI-readable text
+
+Open the public **AI text** footer link, or fetch **`/llms.txt`** for a concise index and **`/llms-full.txt`** for the complete Markdown/text portfolio. **`/index.md`** serves the same full content as `text/markdown`. Public HTML and HTTP discovery links point to these resources; they support anonymous GET/HEAD and do not require JavaScript or AI credentials.
+
+The resources read the current **published** profile, visible projects/sections, capabilities, About, experience, contact, and evidence notes. Draft-preview parameters and admin cookies never switch them to private content. Private repository URL fields, auth records, and unavailable demo links are not exported; existing prototype/verification qualifications are retained. Disabling résumé downloads removes the résumé links without disabling AI-readable portfolio text.
+
+This helps compatible AI tools retrieve accurate information; it does **not** guarantee that every AI provider will discover or index it. It does not add write access or change crawler/training permissions. See [AI reading resources](docs/AI_READING.md) for runtime routes, privacy boundaries, portability, and tests.
 
 ## Projects and evidence
 

@@ -31,6 +31,7 @@ The original section components remain under `src/components/`: Hero, Navbar, Pr
 - `ProjectPreview.tsx` still supports genuine UI captures or an explicitly labeled diagram fallback; illustration covers are not passed off as screenshots.
 - `ProjectActions.tsx` distinguishes verified/provided/unavailable demos and public/private/unverified source. Profile links are not disguised as project source.
 - `src/lib/resume.ts` and `resume-html.ts` share runtime text/print output with the API and factory generator.
+- `src/lib/llms.ts` and `server/llms.ts` generate and serve the published `/llms.txt`, `/llms-full.txt`, and `/index.md` resources, with visible-section/project filtering, honest evidence, draft isolation, and GET/HEAD support. Public HTML/HTTP discovery and the footer's AI text link point to them; Vercel rewrites use the same API runtime. See [AI reading resources](AI_READING.md).
 - `scripts/generate-resume.ts` generates factory reference HTML/TXT under `public/resume/`; runtime links use the CMS API.
 - `src/lib/contact.ts` and `projects.ts` create correctly encoded, project/profile-aware email links.
 
